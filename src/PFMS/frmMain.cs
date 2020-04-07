@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace PFMS
 {
-    public partial class frmMain : MetroForm
+    public partial class FrmMain : MetroForm
     {
-        public frmMain()
+        public FrmMain()
         {
             InitializeComponent();
         }
