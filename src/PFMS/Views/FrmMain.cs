@@ -1,7 +1,6 @@
 ﻿using MetroFramework.Forms;
-using System.Windows.Forms;
 
-namespace PFMS
+namespace PFMS.Views
 {
     public partial class FrmMain : MetroForm
     {

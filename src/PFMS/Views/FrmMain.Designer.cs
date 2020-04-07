@@ -1,4 +1,4 @@
-﻿namespace PFMS
+﻿namespace PFMS.Views
 {
     partial class FrmMain
     {

@@ -1,22 +1,74 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using PFMS.Domain;
+using PFMS.Persistence;
+using PFMS.Views;
+using System;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace PFMS
 {
-    static class Program
+    public static class Program
     {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
+        private static readonly IServiceProvider _serviceProvider;
+        private static readonly IConfiguration _configuration;
+
+        static Program()
+        {
+            var configurationBuilder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            _configuration = configurationBuilder.Build();
+
+            var builder = new ContainerBuilder();
+
+            builder.Populate(ConfigureServices());
+            builder.RegisterModule<ViewModule>();
+
+            _serviceProvider = new AutofacServiceProvider(builder.Build());
+        }
+
+        private static IServiceCollection ConfigureServices()
+        {
+            var assembly = Assembly.GetAssembly(typeof(Program));
+            var assemblyName = assembly.GetName().Name;
+
+            return new ServiceCollection()
+                .AddAutofac()
+                .AddAutoMapper(
+                    Assembly.GetAssembly(typeof(Program))
+                )
+                .AddDbContext<DatabaseContext>(options =>
+                {
+                    options.UseSqlServer(
+                        _configuration.GetConnectionString("DefaultConnection"),
+                        sqlServerOptionsAction: sqlOptions =>
+                        {
+                            sqlOptions.MigrationsAssembly(assemblyName);
+                        });
+                })
+                .AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetService<DatabaseContext>());
+        }
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                var frmMain = services.GetRequiredService<FrmMain>();
+                Application.Run(frmMain);
+            }
         }
     }
 }
