@@ -1,6 +1,6 @@
 ﻿namespace PFMS
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frmMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Name = "frmMain";
+            this.Style = MetroFramework.MetroColorStyle.Green;
+            this.Text = "Personal Finance Management";
+            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.ResumeLayout(false);
+
         }
 
         #endregion
