@@ -37,7 +37,7 @@ namespace PFMS.Persistence
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyConfigurations(
-                typeof(DbContext).Assembly,
+                typeof(DatabaseContext).Assembly,
                 typeof(IEntityTypeConfiguration<>));
         }
 
