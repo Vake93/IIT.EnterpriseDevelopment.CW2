@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PFMS.Domain;
 using PFMS.Domain.Models;
+using PFMS.Domain.Queries;
 using PFMS.Persistence.Extensions;
 using System;
 using System.Linq;

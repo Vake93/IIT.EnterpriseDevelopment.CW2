@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PFMS.Domain
+namespace PFMS.Domain.Repositories
 {
     public interface IRepository<TEntity>
         where TEntity : IEntity
