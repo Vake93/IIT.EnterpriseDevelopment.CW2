@@ -12,21 +12,7 @@ namespace PFMS.Persistence.EntityConfigurations.Currencies
 
             builder.HasKey(i => i.Id);
 
-            builder
-                .Property(i => i.Name)
-                .IsRequired();
-
-            builder
-                .Property(i => i.ISOCurrencyCode)
-                .IsRequired();
-
-            builder
-                .Property(i => i.Symbol)
-                .IsRequired();
-
-            builder
-                .HasIndex(i => i.ISOCurrencyCode)
-                .IsUnique();
+            builder.HasAlternateKey(i => i.ISOCurrencyCode);
         }
     }
 }

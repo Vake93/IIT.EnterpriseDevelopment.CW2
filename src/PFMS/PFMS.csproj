@@ -204,6 +204,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DesignTimeDbContextFactory.cs" />
+    <Compile Include="Migrations\20200410090524_Initial.cs" />
+    <Compile Include="Migrations\20200410090524_Initial.designer.cs">
+      <DependentUpon>20200410090524_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DatabaseContextModelSnapshot.cs" />
     <Compile Include="Services\ServiceModule.cs" />
     <Compile Include="Views\FrmMain.cs">
       <SubType>Form</SubType>
