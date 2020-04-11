@@ -13,6 +13,10 @@ namespace PFMS.Persistence.EntityConfigurations.Users
             builder.HasKey(i => i.Id);
 
             builder
+                .HasIndex(i => i.UserName)
+                .IsUnique();
+
+            builder
                 .HasOne(i => i.DefaultCurrency)
                 .WithMany()
                 .HasForeignKey(i => i.DefaultISOCurrencyCode)

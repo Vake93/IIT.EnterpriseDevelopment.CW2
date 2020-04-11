@@ -30,15 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // frmMain
+            // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "frmMain";
-            this.Style = MetroFramework.MetroColorStyle.Green;
+            this.Name = "FrmMain";
             this.Text = "Personal Finance Management";
-            this.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.ResumeLayout(false);
 
         }

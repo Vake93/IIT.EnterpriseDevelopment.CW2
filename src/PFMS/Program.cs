@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PFMS.Domain;
 using PFMS.Persistence;
+using PFMS.Services;
 using PFMS.Views;
 using System;
 using System.IO;
@@ -30,7 +31,9 @@ namespace PFMS
             var builder = new ContainerBuilder();
 
             builder.Populate(ConfigureServices());
+
             builder.RegisterModule<ViewModule>();
+            builder.RegisterModule<ServiceModule>();
 
             _serviceProvider = new AutofacServiceProvider(builder.Build());
         }
@@ -66,8 +69,10 @@ namespace PFMS
             using (var scope = _serviceProvider.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                var frmMain = services.GetRequiredService<FrmMain>();
-                Application.Run(frmMain);
+
+                services.GetRequiredService<FrmSplash>().Show();
+
+                Application.Run();
             }
         }
     }

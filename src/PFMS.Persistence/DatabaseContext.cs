@@ -20,6 +20,11 @@ namespace PFMS.Persistence
         {
         }
 
+        public Task MigrateDbAsync()
+        {
+            return Database.MigrateAsync();
+        }
+
         public override int SaveChanges()
         {
             UpdateTimestamps();

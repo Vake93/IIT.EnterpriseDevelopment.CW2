@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using PFMS.Persistence;
 using System;
 
 namespace PFMS.Services
@@ -9,6 +10,16 @@ namespace PFMS.Services
         {
             builder.RegisterAssemblyTypes(typeof(ServiceModule).Assembly)
                 .Where(t => t.Namespace.StartsWith("PFMS.Services", StringComparison.Ordinal))
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope();
+
+            builder.RegisterAssemblyTypes(typeof(DatabaseContext).Assembly)
+                .Where(t => t.Namespace.StartsWith("PFMS.Persistence.Queries", StringComparison.Ordinal))
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope();
+
+            builder.RegisterAssemblyTypes(typeof(DatabaseContext).Assembly)
+                .Where(t => t.Namespace.StartsWith("PFMS.Persistence.Repositories", StringComparison.Ordinal))
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
         }
