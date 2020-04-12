@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using PFMS.Configurations;
 using PFMS.Services.Authentication;
 using System;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace PFMS.Views
@@ -45,6 +46,16 @@ namespace PFMS.Views
 
             if (await _authenticationService.LoginUserAsync(userName, password))
             {
+                using (var credential = new CredentialManagement.Credential())
+                {
+                    credential.Target = Assembly.GetExecutingAssembly().FullName;
+                    credential.PersistanceType = CredentialManagement.PersistanceType.LocalComputer;
+                    credential.Type = CredentialManagement.CredentialType.Generic;
+                    credential.Username = userName;
+                    credential.Password = password;
+                    _ = (RememberMe.Checked) ? credential.Save() : credential.Delete();
+                }
+
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -66,6 +77,21 @@ namespace PFMS.Views
         {
             DialogResult = DialogResult.Abort;
             Close();
+        }
+
+        private void FrmLogin_Shown(object sender, EventArgs e)
+        {
+            using (var credential = new CredentialManagement.Credential())
+            {
+                credential.Target = Assembly.GetExecutingAssembly().FullName;
+
+                if (credential.Load())
+                {
+                    UserNameText.Text = credential.Username;
+                    PasswordText.Text = credential.Password;
+                    RememberMe.Checked = true;
+                }
+            }
         }
     }
 }

@@ -11,13 +11,15 @@ namespace PFMS.Views
         private readonly IAuthenticationService _authenticationService;
         private readonly StyleConfiguration _styleConfiguration;
         private readonly FrmLogin _frmLogin;
-
+        private readonly FrmRegister _frmRegister;
         public FrmMain(
             FrmLogin frmLogin,
+            FrmRegister frmRegister,
             IAuthenticationService authenticationService,
             IOptions<StyleConfiguration> styleConfigurationOption)
         {
             _frmLogin = frmLogin;
+            _frmRegister = frmRegister;
             _authenticationService = authenticationService;
             _styleConfiguration = styleConfigurationOption.Value;
 
@@ -40,7 +42,12 @@ namespace PFMS.Views
             {
                 var result = _frmLogin.ShowDialog(this);
 
-                if (result == DialogResult.Cancel)
+                if (result == DialogResult.Abort)
+                {
+                    result = _frmRegister.ShowDialog(this);
+                }
+
+                if (result != DialogResult.OK)
                 {
                     Close();
                 }

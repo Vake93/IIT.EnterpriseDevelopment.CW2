@@ -37,6 +37,7 @@
             this.ErrorText = new MetroFramework.Controls.MetroLabel();
             this.Spinner = new MetroFramework.Controls.MetroProgressSpinner();
             this.Register = new MetroFramework.Controls.MetroLink();
+            this.RememberMe = new MetroFramework.Controls.MetroCheckBox();
             this.SuspendLayout();
             // 
             // UserName
@@ -112,24 +113,24 @@
             this.PasswordText.SelectionStart = 0;
             this.PasswordText.ShortcutsEnabled = true;
             this.PasswordText.Size = new System.Drawing.Size(395, 23);
-            this.PasswordText.TabIndex = 3;
+            this.PasswordText.TabIndex = 2;
             this.PasswordText.UseSelectable = true;
             this.PasswordText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.PasswordText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // BtnLogin
             // 
-            this.BtnLogin.Location = new System.Drawing.Point(377, 204);
+            this.BtnLogin.Location = new System.Drawing.Point(377, 236);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(125, 50);
-            this.BtnLogin.TabIndex = 4;
+            this.BtnLogin.TabIndex = 6;
             this.BtnLogin.Text = "Login";
             this.BtnLogin.UseSelectable = true;
             this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // BtnExit
             // 
-            this.BtnExit.Location = new System.Drawing.Point(23, 204);
+            this.BtnExit.Location = new System.Drawing.Point(23, 236);
             this.BtnExit.Name = "BtnExit";
             this.BtnExit.Size = new System.Drawing.Size(125, 50);
             this.BtnExit.TabIndex = 5;
@@ -141,7 +142,7 @@
             // 
             this.ErrorText.AutoSize = true;
             this.ErrorText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ErrorText.Location = new System.Drawing.Point(23, 168);
+            this.ErrorText.Location = new System.Drawing.Point(23, 200);
             this.ErrorText.Name = "ErrorText";
             this.ErrorText.Size = new System.Drawing.Size(65, 19);
             this.ErrorText.TabIndex = 6;
@@ -150,7 +151,7 @@
             // 
             // Spinner
             // 
-            this.Spinner.Location = new System.Drawing.Point(154, 204);
+            this.Spinner.Location = new System.Drawing.Point(154, 236);
             this.Spinner.Maximum = 100;
             this.Spinner.Name = "Spinner";
             this.Spinner.Size = new System.Drawing.Size(50, 50);
@@ -163,19 +164,30 @@
             // 
             // Register
             // 
-            this.Register.Location = new System.Drawing.Point(377, 164);
+            this.Register.Location = new System.Drawing.Point(377, 196);
             this.Register.Name = "Register";
             this.Register.Size = new System.Drawing.Size(125, 23);
-            this.Register.TabIndex = 8;
+            this.Register.TabIndex = 4;
             this.Register.Text = "Register New User";
             this.Register.UseSelectable = true;
             this.Register.Click += new System.EventHandler(this.Register_Click);
+            // 
+            // RememberMe
+            // 
+            this.RememberMe.AutoSize = true;
+            this.RememberMe.Location = new System.Drawing.Point(107, 149);
+            this.RememberMe.Name = "RememberMe";
+            this.RememberMe.Size = new System.Drawing.Size(101, 15);
+            this.RememberMe.TabIndex = 3;
+            this.RememberMe.Text = "Remember Me";
+            this.RememberMe.UseSelectable = true;
             // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 278);
+            this.ClientSize = new System.Drawing.Size(525, 309);
+            this.Controls.Add(this.RememberMe);
             this.Controls.Add(this.Register);
             this.Controls.Add(this.Spinner);
             this.Controls.Add(this.ErrorText);
@@ -191,6 +203,7 @@
             this.Resizable = false;
             this.ShowInTaskbar = false;
             this.Text = "Login";
+            this.Shown += new System.EventHandler(this.FrmLogin_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +220,6 @@
         private MetroFramework.Controls.MetroLabel ErrorText;
         private MetroFramework.Controls.MetroProgressSpinner Spinner;
         private MetroFramework.Controls.MetroLink Register;
+        private MetroFramework.Controls.MetroCheckBox RememberMe;
     }
 }
