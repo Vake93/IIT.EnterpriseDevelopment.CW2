@@ -58,7 +58,6 @@ namespace PFMS
                             sqlOptions.MigrationsAssembly(assemblyName);
                         });
                 })
-                .AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetService<DatabaseContext>())
                 .Configure<StyleConfiguration>(_configuration.GetSection("Style"));
         }
 

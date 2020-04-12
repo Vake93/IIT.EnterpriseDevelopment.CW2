@@ -1,5 +1,4 @@
-﻿using PFMS.Domain;
-using PFMS.Domain.Models.Users;
+﻿using PFMS.Domain.Models.Users;
 using PFMS.Domain.Queries.Users;
 using PFMS.Domain.Repositories.Users;
 using System;
@@ -14,15 +13,12 @@ namespace PFMS.Services.Authentication
     {
         private readonly IUserQuery _userQuery;
         private readonly IUserRepository _userRepository;
-        private readonly IUnitOfWork _unitOfWork;
 
         public AuthenticationService(
             IUserQuery userQuery,
-            IUnitOfWork unitOfWork,
             IUserRepository userRepository)
         {
             _userQuery = userQuery;
-            _unitOfWork = unitOfWork;
             _userRepository = userRepository;
         }
 
@@ -58,7 +54,7 @@ namespace PFMS.Services.Authentication
             {
                 user.SecurityStamp = CreateSecurityStamp();
                 user.PasswordHash = CreatePasswordHash(password, user.SecurityStamp);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                await _userRepository.SaveChangesAsync(cancellationToken);
 
                 return true;
             }
@@ -78,7 +74,7 @@ namespace PFMS.Services.Authentication
             {
                 user.SecurityStamp = CreateSecurityStamp();
                 user.PasswordHash = CreatePasswordHash(newPassword, user.SecurityStamp);
-                await _unitOfWork.SaveChangesAsync(cancellationToken);
+                await _userRepository.SaveChangesAsync(cancellationToken);
 
                 return true;
             }

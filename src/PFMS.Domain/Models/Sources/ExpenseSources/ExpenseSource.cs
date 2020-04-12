@@ -1,11 +1,12 @@
 ﻿using PFMS.Domain.Models.Expenses;
+using PFMS.Domain.Models.Sources;
 using PFMS.Domain.Models.Users;
 using System;
 using System.Collections.Generic;
 
 namespace PFMS.Domain.Models.ExpenseSources
 {
-    public class ExpenseSource : Entity
+    public class ExpenseSource : Entity, ISource
     {
         private readonly List<Expense> _expenses;
 

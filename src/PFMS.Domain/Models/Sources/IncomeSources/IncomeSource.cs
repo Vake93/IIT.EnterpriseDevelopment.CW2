@@ -1,11 +1,12 @@
-﻿using PFMS.Domain.Models.Users;
+﻿using PFMS.Domain.Models.Sources;
+using PFMS.Domain.Models.Users;
 using System;
 using System.Collections.Generic;
 using IncomeModel = PFMS.Domain.Models.Income.Income;
 
 namespace PFMS.Domain.Models.IncomeSources
 {
-    public class IncomeSource : Entity
+    public class IncomeSource : Entity, ISource
     {
         private readonly List<IncomeModel> _income;
 

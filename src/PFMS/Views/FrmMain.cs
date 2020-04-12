@@ -1,7 +1,10 @@
 ﻿using MetroFramework.Forms;
 using Microsoft.Extensions.Options;
 using PFMS.Configurations;
+using PFMS.Domain.Models.Users;
 using PFMS.Services.Authentication;
+using PFMS.Services.ViewActivator;
+using System;
 using System.Windows.Forms;
 
 namespace PFMS.Views
@@ -10,16 +13,14 @@ namespace PFMS.Views
     {
         private readonly IAuthenticationService _authenticationService;
         private readonly StyleConfiguration _styleConfiguration;
-        private readonly FrmLogin _frmLogin;
-        private readonly FrmRegister _frmRegister;
+        private readonly IViewActivatorService _viewActivatorService;
+
         public FrmMain(
-            FrmLogin frmLogin,
-            FrmRegister frmRegister,
+            IViewActivatorService viewActivatorService,
             IAuthenticationService authenticationService,
             IOptions<StyleConfiguration> styleConfigurationOption)
         {
-            _frmLogin = frmLogin;
-            _frmRegister = frmRegister;
+            _viewActivatorService = viewActivatorService;
             _authenticationService = authenticationService;
             _styleConfiguration = styleConfigurationOption.Value;
 
@@ -36,22 +37,32 @@ namespace PFMS.Views
             }
         }
 
-        private void FrmMain_Shown(object sender, System.EventArgs e)
+        private void FrmMain_Shown(object sender, EventArgs e)
+        {
+            if (!AuthenticateUser())
+            {
+                Close();
+            }
+        }
+
+        private bool AuthenticateUser()
         {
             if (_authenticationService.LoggedInUser is null)
             {
-                var result = _frmLogin.ShowDialog(this);
+                var result = _viewActivatorService.ShowDialog<FrmLogin>(this);
 
                 if (result == DialogResult.Abort)
                 {
-                    result = _frmRegister.ShowDialog(this);
-                }
-
-                if (result != DialogResult.OK)
-                {
-                    Close();
+                    _viewActivatorService.ShowDialog<FrmRegister>(this);
                 }
             }
+
+            return _authenticationService.LoggedInUser is User;
+        }
+
+        private void ManageSources_Click(object sender, EventArgs e)
+        {
+            _viewActivatorService.ShowDialog<FrmSources>(this);
         }
     }
 }

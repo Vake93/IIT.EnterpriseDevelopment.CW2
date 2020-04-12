@@ -1,7 +1,6 @@
 ﻿using MetroFramework.Forms;
 using Microsoft.Extensions.Options;
 using PFMS.Configurations;
-using PFMS.Domain;
 using PFMS.Domain.Models.Users;
 using PFMS.Domain.Repositories.Users;
 using PFMS.Services.Authentication;
@@ -14,15 +13,12 @@ namespace PFMS.Views
         private readonly IAuthenticationService _authenticationService;
         private readonly StyleConfiguration _styleConfiguration;
         private readonly IUserRepository _userRepository;
-        private readonly IUnitOfWork _unitOfWork;
 
         public FrmRegister(
-            IUnitOfWork unitOfWork,
             IUserRepository userRepository,
             IAuthenticationService authenticationService,
             IOptions<StyleConfiguration> styleConfigurationOption)
         {
-            _unitOfWork = unitOfWork;
             _userRepository = userRepository;
             _authenticationService = authenticationService;
             _styleConfiguration = styleConfigurationOption.Value;
@@ -48,7 +44,7 @@ namespace PFMS.Views
 
                 _userRepository.Add(user);
 
-                await _unitOfWork.SaveChangesAsync();
+                await _userRepository.SaveChangesAsync();
                 await _authenticationService.SetPasswordAsync(UserNameText.Text, PasswordText.Text);
                 await _authenticationService.LoginUserAsync(UserNameText.Text, PasswordText.Text);
 

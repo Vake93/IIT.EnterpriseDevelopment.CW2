@@ -272,6 +272,14 @@
     <Compile Include="Services\Authentication\AuthenticationService.cs" />
     <Compile Include="Services\Authentication\IAuthenticationService.cs" />
     <Compile Include="Services\ServiceModule.cs" />
+    <Compile Include="Services\ViewActivator\IViewActivatorService.cs" />
+    <Compile Include="Services\ViewActivator\ViewActivatorService.cs" />
+    <Compile Include="Views\Common\CtrlSourceItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Common\CtrlSourceItem.Designer.cs">
+      <DependentUpon>CtrlSourceItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -286,6 +294,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\FrmSources.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmSources.Designer.cs">
+      <DependentUpon>FrmSources.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmRegister.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +316,13 @@
     <Content Include="appsettings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\icons8-merchant-account-100.png" />
+    <None Include="Resources\icons8-initiate-money-transfer-101.png" />
+    <None Include="Resources\icons8-initiate-money-transfer-100.png" />
+    <None Include="Resources\icons8-exchange-100.png" />
+    <EmbeddedResource Include="Views\Common\CtrlSourceItem.resx">
+      <DependentUpon>CtrlSourceItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -316,7 +337,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\FrmSources.resx">
+      <DependentUpon>FrmSources.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmRegister.resx">
       <DependentUpon>FrmRegister.cs</DependentUpon>
     </EmbeddedResource>

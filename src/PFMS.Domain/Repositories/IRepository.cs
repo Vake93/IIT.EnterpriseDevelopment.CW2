@@ -48,5 +48,7 @@ namespace PFMS.Domain.Repositories
         Task<int> CountAsync(
             Expression<Func<TEntity, bool>> predicate,
             CancellationToken cancellationToken = default);
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

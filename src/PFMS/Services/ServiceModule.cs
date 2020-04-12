@@ -11,17 +11,17 @@ namespace PFMS.Services
             builder.RegisterAssemblyTypes(typeof(ServiceModule).Assembly)
                 .Where(t => t.Namespace.StartsWith("PFMS.Services", StringComparison.Ordinal))
                 .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+                .SingleInstance();
 
             builder.RegisterAssemblyTypes(typeof(DatabaseContext).Assembly)
                 .Where(t => t.Namespace.StartsWith("PFMS.Persistence.Queries", StringComparison.Ordinal))
                 .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+                .SingleInstance();
 
             builder.RegisterAssemblyTypes(typeof(DatabaseContext).Assembly)
                 .Where(t => t.Namespace.StartsWith("PFMS.Persistence.Repositories", StringComparison.Ordinal))
                 .AsImplementedInterfaces()
-                .InstancePerLifetimeScope();
+                .SingleInstance();
         }
     }
 }

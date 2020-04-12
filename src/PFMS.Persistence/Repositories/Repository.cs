@@ -117,5 +117,10 @@ namespace PFMS.Persistence.Repositories
                 .OrderBy(orderBy, orderDirection)
                 .ToArrayAsync(cancellationToken);
         }
+
+        public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return Context.SaveChangesAsync(cancellationToken);
+        }
     }
 }

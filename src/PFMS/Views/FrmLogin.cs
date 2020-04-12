@@ -30,6 +30,7 @@ namespace PFMS.Views
 
         private async void BtnLogin_Click(object sender, EventArgs e)
         {
+            ErrorText.Text = string.Empty;
             Spinner.Spinning = true;
             Spinner.Visible = true;
 

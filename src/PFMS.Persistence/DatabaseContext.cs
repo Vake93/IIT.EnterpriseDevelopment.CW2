@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PFMS.Domain;
 using PFMS.Domain.Models;
 using PFMS.Persistence.Extensions;
 using System;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PFMS.Persistence
 {
-    public class DatabaseContext : DbContext, IUnitOfWork
+    public class DatabaseContext : DbContext
     {
         public DatabaseContext()
         {
