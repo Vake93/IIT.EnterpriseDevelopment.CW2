@@ -24,7 +24,7 @@ namespace PFMS
         {
             var configurationBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                .AddXmlFile("appsettings.xml", optional: false, reloadOnChange: true);
 
             _configuration = configurationBuilder.Build();
 
