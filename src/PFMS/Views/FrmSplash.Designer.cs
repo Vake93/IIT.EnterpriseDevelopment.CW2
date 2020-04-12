@@ -79,6 +79,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "FrmSplash";
+            this.TopMost = true;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmSplash_FormClosed);
             this.Shown += new System.EventHandler(this.FrmSplash_Shown);
             this.ResumeLayout(false);

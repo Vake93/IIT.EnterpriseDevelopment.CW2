@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using PFMS.Configurations;
 using PFMS.Domain;
 using PFMS.Persistence;
 using PFMS.Services;
@@ -57,7 +58,8 @@ namespace PFMS
                             sqlOptions.MigrationsAssembly(assemblyName);
                         });
                 })
-                .AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetService<DatabaseContext>());
+                .AddScoped<IUnitOfWork>(serviceProvider => serviceProvider.GetService<DatabaseContext>())
+                .Configure<StyleConfiguration>(_configuration.GetSection("Style"));
         }
 
         [STAThread]

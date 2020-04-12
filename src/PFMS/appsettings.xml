@@ -3,4 +3,8 @@
   <ConnectionStrings>
     <DefaultConnection>Data Source=pfms.database.windows.net;Initial Catalog=pfms;User ID=pfms_admin;Password=XwbtDjDynj2;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False</DefaultConnection>
   </ConnectionStrings>
+  <Style>
+    <Theme>2</Theme>
+    <Color>5</Color>
+  </Style>
 </configuration>

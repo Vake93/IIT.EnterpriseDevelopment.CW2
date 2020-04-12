@@ -38,6 +38,7 @@
             this.Name = "FrmMain";
             this.Text = "Personal Finance Management";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
+            this.Shown += new System.EventHandler(this.FrmMain_Shown);
             this.ResumeLayout(false);
 
         }

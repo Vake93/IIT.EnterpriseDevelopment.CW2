@@ -1,4 +1,6 @@
 ﻿using MetroFramework.Forms;
+using Microsoft.Extensions.Options;
+using PFMS.Configurations;
 using PFMS.Services.Authentication;
 using System.Windows.Forms;
 
@@ -7,12 +9,21 @@ namespace PFMS.Views
     public partial class FrmMain : MetroForm
     {
         private readonly IAuthenticationService _authenticationService;
+        private readonly StyleConfiguration _styleConfiguration;
+        private readonly FrmLogin _frmLogin;
 
-        public FrmMain(IAuthenticationService authenticationService)
+        public FrmMain(
+            FrmLogin frmLogin,
+            IAuthenticationService authenticationService,
+            IOptions<StyleConfiguration> styleConfigurationOption)
         {
+            _frmLogin = frmLogin;
+            _authenticationService = authenticationService;
+            _styleConfiguration = styleConfigurationOption.Value;
+
             InitializeComponent();
 
-            _authenticationService = authenticationService;
+            StyleManager = _styleConfiguration.Build(this);
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -20,6 +31,19 @@ namespace PFMS.Views
             if (Application.OpenForms.Count == 0)
             {
                 Application.Exit();
+            }
+        }
+
+        private void FrmMain_Shown(object sender, System.EventArgs e)
+        {
+            if (_authenticationService.LoggedInUser is null)
+            {
+                var result = _frmLogin.ShowDialog(this);
+
+                if (result == DialogResult.Cancel)
+                {
+                    Close();
+                }
             }
         }
     }

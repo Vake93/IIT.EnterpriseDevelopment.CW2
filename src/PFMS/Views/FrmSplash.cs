@@ -1,7 +1,11 @@
-﻿using MetroFramework.Forms;
+﻿using MetroFramework;
+using MetroFramework.Forms;
+using Microsoft.Extensions.Options;
+using PFMS.Configurations;
 using PFMS.Persistence;
 using PFMS.Seeders;
 using System;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -9,18 +13,27 @@ namespace PFMS.Views
 {
     public partial class FrmSplash : MetroForm
     {
+        private readonly StyleConfiguration _styleConfiguration;
         private readonly DatabaseContext _context;
         private readonly FrmMain _frmMain;
 
-        public FrmSplash(DatabaseContext context, FrmMain frmMain)
+        public FrmSplash(
+            DatabaseContext context,
+            FrmMain frmMain,
+            IOptions<StyleConfiguration> styleConfigurationOption)
         {
+            _context = context;
+            _frmMain = frmMain;
+            _styleConfiguration = styleConfigurationOption.Value;
+
             InitializeComponent();
 
             Spinner.Top = Height / 2 - Spinner.Height / 2;
             Spinner.Left = Width / 2 - Spinner.Width / 2;
 
-            _context = context;
-            _frmMain = frmMain;
+            StyleManager = _styleConfiguration.Build(this);
+
+            Title.ForeColor = (StyleManager.Theme == MetroThemeStyle.Dark) ? Color.White : Color.Black;
         }
 
         private async void FrmSplash_Shown(object sender, EventArgs e)
