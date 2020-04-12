@@ -73,6 +73,7 @@
             // 
             // BtnEditSave
             // 
+            this.BtnEditSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.BtnEditSave.Location = new System.Drawing.Point(18, 167);
             this.BtnEditSave.Name = "BtnEditSave";
             this.BtnEditSave.Size = new System.Drawing.Size(75, 23);
@@ -83,6 +84,7 @@
             // 
             // BtnDeleteCancel
             // 
+            this.BtnDeleteCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnDeleteCancel.Location = new System.Drawing.Point(465, 167);
             this.BtnDeleteCancel.Name = "BtnDeleteCancel";
             this.BtnDeleteCancel.Size = new System.Drawing.Size(93, 23);

@@ -54,7 +54,7 @@
             this.Tabs.Location = new System.Drawing.Point(23, 63);
             this.Tabs.Name = "Tabs";
             this.Tabs.SelectedIndex = 0;
-            this.Tabs.Size = new System.Drawing.Size(824, 464);
+            this.Tabs.Size = new System.Drawing.Size(704, 493);
             this.Tabs.TabIndex = 0;
             this.Tabs.UseSelectable = true;
             // 
@@ -63,7 +63,7 @@
             this.Income.Controls.Add(this.IncomePanel);
             this.Income.Location = new System.Drawing.Point(4, 38);
             this.Income.Name = "Income";
-            this.Income.Size = new System.Drawing.Size(816, 422);
+            this.Income.Size = new System.Drawing.Size(696, 451);
             this.Income.TabIndex = 0;
             this.Income.Text = "Income Sources";
             // 
@@ -76,7 +76,7 @@
             this.IncomePanel.HorizontalScrollbarSize = 10;
             this.IncomePanel.Location = new System.Drawing.Point(0, 0);
             this.IncomePanel.Name = "IncomePanel";
-            this.IncomePanel.Size = new System.Drawing.Size(816, 422);
+            this.IncomePanel.Size = new System.Drawing.Size(696, 451);
             this.IncomePanel.TabIndex = 0;
             this.IncomePanel.VerticalScrollbarBarColor = true;
             this.IncomePanel.VerticalScrollbarHighlightOnWheel = false;
@@ -91,7 +91,7 @@
             this.IncomeLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.IncomeLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.IncomeLayoutPanel.Name = "IncomeLayoutPanel";
-            this.IncomeLayoutPanel.Size = new System.Drawing.Size(816, 422);
+            this.IncomeLayoutPanel.Size = new System.Drawing.Size(696, 451);
             this.IncomeLayoutPanel.TabIndex = 2;
             this.IncomeLayoutPanel.WrapContents = false;
             // 
@@ -134,7 +134,7 @@
             // 
             // Spinner
             // 
-            this.Spinner.Location = new System.Drawing.Point(765, 10);
+            this.Spinner.Location = new System.Drawing.Point(652, 10);
             this.Spinner.Maximum = 100;
             this.Spinner.Name = "Spinner";
             this.Spinner.Size = new System.Drawing.Size(75, 75);
@@ -147,9 +147,9 @@
             // BtnNewItem
             // 
             this.BtnNewItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnNewItem.Location = new System.Drawing.Point(672, 533);
+            this.BtnNewItem.Location = new System.Drawing.Point(608, 562);
             this.BtnNewItem.Name = "BtnNewItem";
-            this.BtnNewItem.Size = new System.Drawing.Size(171, 23);
+            this.BtnNewItem.Size = new System.Drawing.Size(115, 23);
             this.BtnNewItem.TabIndex = 2;
             this.BtnNewItem.Text = "Add New Source";
             this.BtnNewItem.UseSelectable = true;
@@ -159,12 +159,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(870, 571);
+            this.ClientSize = new System.Drawing.Size(750, 600);
             this.Controls.Add(this.Spinner);
             this.Controls.Add(this.BtnNewItem);
             this.Controls.Add(this.Tabs);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(750, 600);
             this.Name = "FrmSources";
             this.ShowInTaskbar = false;
             this.Text = "Manage Income/Expense Sources";
