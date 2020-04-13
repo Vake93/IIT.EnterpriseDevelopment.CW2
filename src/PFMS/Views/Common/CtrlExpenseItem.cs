@@ -48,12 +48,7 @@ namespace PFMS.Views.Common
 
             if (Expense is Expense)
             {
-                TitleText.Text = Expense.Title;
-                ExpenseAmountText.Text = Expense.Amount.ToString();
-                CmbExpenseSource.SelectedItem = _expenseSources.FirstOrDefault(i => i.Id == Expense.ExpenseSourceId);
-                ExpenseDate.Value = Expense.Date;
-
-                Amount.Text = $"Amount ({Expense.ISOCurrencyCode}):";
+                UpdateViewData();
             }
 
             EditMode = false;
@@ -132,10 +127,7 @@ namespace PFMS.Views.Common
             }
             else
             {
-                TitleText.Text = Expense.Title;
-                ExpenseAmountText.Text = Expense.Amount.ToString();
-                CmbExpenseSource.SelectedItem = _expenseSources.FirstOrDefault(i => i.Id == Expense.ExpenseSourceId);
-                ExpenseDate.Value = Expense.Date;
+                UpdateViewData();
 
                 ErrorText.Text = string.Empty;
                 EditMode = true;
@@ -152,10 +144,7 @@ namespace PFMS.Views.Common
 
             if (EditMode)
             {
-                TitleText.Text = Expense.Title;
-                ExpenseAmountText.Text = Expense.Amount.ToString();
-                CmbExpenseSource.SelectedItem = Expense.ExpenseSourceId;
-                ExpenseDate.Value = Expense.Date;
+                UpdateViewData();
 
                 EditMode = false;
             }
@@ -173,6 +162,16 @@ namespace PFMS.Views.Common
                     Deleted?.Invoke(this);
                 }
             }
+        }
+
+        private void UpdateViewData()
+        {
+            TitleText.Text = Expense.Title;
+            ExpenseAmountText.Text = Expense.Amount.ToString();
+            CmbExpenseSource.SelectedItem = _expenseSources.FirstOrDefault(i => i.Id == Expense.ExpenseSourceId);
+            ExpenseDate.Value = Expense.Date;
+
+            Amount.Text = $"Amount ({Expense.ISOCurrencyCode}):";
         }
     }
 }

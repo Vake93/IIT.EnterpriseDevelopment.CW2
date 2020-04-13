@@ -30,8 +30,7 @@ namespace PFMS.Views.Common
 
             if (Source is ISource)
             {
-                TitleText.Text = Source.Title;
-                DescriptionText.Text = Source.Description;
+                UpdateViewData();
             }
 
             EditMode = false;
@@ -88,8 +87,7 @@ namespace PFMS.Views.Common
             else
             {
                 ErrorText.Text = string.Empty;
-                TitleText.Text = Source.Title;
-                DescriptionText.Text = Source.Description;
+                UpdateViewData();
                 EditMode = true;
             }
         }
@@ -104,8 +102,7 @@ namespace PFMS.Views.Common
 
             if (EditMode)
             {
-                TitleText.Text = Source.Title;
-                DescriptionText.Text = Source.Description;
+                UpdateViewData();
                 EditMode = false;
             }
             else
@@ -122,6 +119,12 @@ namespace PFMS.Views.Common
                     Deleted?.Invoke(this);
                 }
             }
+        }
+
+        private void UpdateViewData()
+        {
+            TitleText.Text = Source.Title;
+            DescriptionText.Text = Source.Description;
         }
     }
 }

@@ -48,12 +48,7 @@ namespace PFMS.Views.Common
 
             if (Income is Income)
             {
-                TitleText.Text = Income.Title;
-                IncomeAmountText.Text = Income.Amount.ToString();
-                CmbIncomeSource.SelectedItem = _incomeSources.FirstOrDefault(i => i.Id == Income.IncomeSourceId);
-                IncomeDate.Value = Income.Date;
-
-                Amount.Text = $"Amount ({Income.ISOCurrencyCode}):";
+                UpdateViewData();
             }
 
             EditMode = false;
@@ -132,10 +127,7 @@ namespace PFMS.Views.Common
             }
             else
             {
-                TitleText.Text = Income.Title;
-                IncomeAmountText.Text = Income.Amount.ToString();
-                CmbIncomeSource.SelectedItem = _incomeSources.FirstOrDefault(i => i.Id == Income.IncomeSourceId);
-                IncomeDate.Value = Income.Date;
+                UpdateViewData();
 
                 ErrorText.Text = string.Empty;
                 EditMode = true;
@@ -152,10 +144,7 @@ namespace PFMS.Views.Common
 
             if (EditMode)
             {
-                TitleText.Text = Income.Title;
-                IncomeAmountText.Text = Income.Amount.ToString();
-                CmbIncomeSource.SelectedItem = Income.IncomeSourceId;
-                IncomeDate.Value = Income.Date;
+                UpdateViewData();
 
                 EditMode = false;
             }
@@ -173,6 +162,16 @@ namespace PFMS.Views.Common
                     Deleted?.Invoke(this);
                 }
             }
+        }
+
+        private void UpdateViewData()
+        {
+            TitleText.Text = Income.Title;
+            IncomeAmountText.Text = Income.Amount.ToString();
+            CmbIncomeSource.SelectedItem = _incomeSources.FirstOrDefault(i => i.Id == Income.IncomeSourceId);
+            IncomeDate.Value = Income.Date;
+
+            Amount.Text = $"Amount ({Income.ISOCurrencyCode}):";
         }
     }
 }
