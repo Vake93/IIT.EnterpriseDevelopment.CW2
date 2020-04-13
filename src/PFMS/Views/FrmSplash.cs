@@ -38,8 +38,8 @@ namespace PFMS.Views
 
         private async void FrmSplash_Shown(object sender, EventArgs e)
         {
-            //Status.Text = "Migrating database...";
-            //await _context.MigrateDbAsync();
+            Status.Text = "Migrating database...";
+            await _context.MigrateDbAsync();
 
             Status.Text = "Setting-up basic data...";
             await SeedOchestrator.SeedAsync(_context);

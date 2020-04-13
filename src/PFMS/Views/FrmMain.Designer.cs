@@ -28,40 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.Tiles = new MetroFramework.Controls.MetroPanel();
             this.FlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.NewIncome = new MetroFramework.Controls.MetroTile();
             this.NewExpense = new MetroFramework.Controls.MetroTile();
             this.ManageSources = new MetroFramework.Controls.MetroTile();
             this.BankAccount = new MetroFramework.Controls.MetroTile();
-            this.metroPanel1.SuspendLayout();
+            this.Status = new MetroFramework.Controls.MetroPanel();
+            this.Stats = new MetroFramework.Controls.MetroLabel();
+            this.TotalIncome = new MetroFramework.Controls.MetroLabel();
+            this.TotalIncomeText = new MetroFramework.Controls.MetroLabel();
+            this.TotalExpense = new MetroFramework.Controls.MetroLabel();
+            this.TotalExpenseText = new MetroFramework.Controls.MetroLabel();
+            this.Tiles.SuspendLayout();
             this.FlowLayoutPanel.SuspendLayout();
+            this.Status.SuspendLayout();
             this.SuspendLayout();
             // 
-            // metroPanel1
+            // Tiles
             // 
-            this.metroPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.Tiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel1.Controls.Add(this.FlowLayoutPanel);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(23, 63);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(954, 514);
-            this.metroPanel1.TabIndex = 0;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.Tiles.Controls.Add(this.FlowLayoutPanel);
+            this.Tiles.HorizontalScrollbarBarColor = true;
+            this.Tiles.HorizontalScrollbarHighlightOnWheel = false;
+            this.Tiles.HorizontalScrollbarSize = 10;
+            this.Tiles.Location = new System.Drawing.Point(23, 63);
+            this.Tiles.Name = "Tiles";
+            this.Tiles.Size = new System.Drawing.Size(652, 514);
+            this.Tiles.TabIndex = 0;
+            this.Tiles.VerticalScrollbarBarColor = true;
+            this.Tiles.VerticalScrollbarHighlightOnWheel = false;
+            this.Tiles.VerticalScrollbarSize = 10;
             // 
             // FlowLayoutPanel
             // 
+            this.FlowLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FlowLayoutPanel.BackColor = System.Drawing.Color.Transparent;
             this.FlowLayoutPanel.Controls.Add(this.NewIncome);
             this.FlowLayoutPanel.Controls.Add(this.NewExpense);
             this.FlowLayoutPanel.Controls.Add(this.ManageSources);
             this.FlowLayoutPanel.Controls.Add(this.BankAccount);
-            this.FlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.FlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.FlowLayoutPanel.Name = "FlowLayoutPanel";
@@ -133,31 +143,107 @@
             this.BankAccount.UseSelectable = true;
             this.BankAccount.UseTileImage = true;
             // 
+            // Status
+            // 
+            this.Status.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Status.Controls.Add(this.TotalExpenseText);
+            this.Status.Controls.Add(this.TotalExpense);
+            this.Status.Controls.Add(this.TotalIncomeText);
+            this.Status.Controls.Add(this.TotalIncome);
+            this.Status.Controls.Add(this.Stats);
+            this.Status.HorizontalScrollbarBarColor = true;
+            this.Status.HorizontalScrollbarHighlightOnWheel = false;
+            this.Status.HorizontalScrollbarSize = 10;
+            this.Status.Location = new System.Drawing.Point(681, 63);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(307, 514);
+            this.Status.TabIndex = 1;
+            this.Status.VerticalScrollbarBarColor = true;
+            this.Status.VerticalScrollbarHighlightOnWheel = false;
+            this.Status.VerticalScrollbarSize = 10;
+            // 
+            // Stats
+            // 
+            this.Stats.AutoSize = true;
+            this.Stats.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.Stats.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.Stats.Location = new System.Drawing.Point(3, 3);
+            this.Stats.Name = "Stats";
+            this.Stats.Size = new System.Drawing.Size(159, 25);
+            this.Stats.TabIndex = 2;
+            this.Stats.Text = "Monthly Summary";
+            // 
+            // TotalIncome
+            // 
+            this.TotalIncome.AutoSize = true;
+            this.TotalIncome.Location = new System.Drawing.Point(16, 48);
+            this.TotalIncome.Name = "TotalIncome";
+            this.TotalIncome.Size = new System.Drawing.Size(83, 19);
+            this.TotalIncome.TabIndex = 3;
+            this.TotalIncome.Text = "Total Income";
+            // 
+            // TotalIncomeText
+            // 
+            this.TotalIncomeText.AutoSize = true;
+            this.TotalIncomeText.Location = new System.Drawing.Point(183, 48);
+            this.TotalIncomeText.Name = "TotalIncomeText";
+            this.TotalIncomeText.Size = new System.Drawing.Size(110, 19);
+            this.TotalIncomeText.TabIndex = 4;
+            this.TotalIncomeText.Text = "## #,###,###.##";
+            // 
+            // TotalExpense
+            // 
+            this.TotalExpense.AutoSize = true;
+            this.TotalExpense.Location = new System.Drawing.Point(16, 67);
+            this.TotalExpense.Name = "TotalExpense";
+            this.TotalExpense.Size = new System.Drawing.Size(87, 19);
+            this.TotalExpense.TabIndex = 5;
+            this.TotalExpense.Text = "Total Expense";
+            // 
+            // TotalExpenseText
+            // 
+            this.TotalExpenseText.AutoSize = true;
+            this.TotalExpenseText.Location = new System.Drawing.Point(183, 67);
+            this.TotalExpenseText.Name = "TotalExpenseText";
+            this.TotalExpenseText.Size = new System.Drawing.Size(110, 19);
+            this.TotalExpenseText.TabIndex = 6;
+            this.TotalExpenseText.Text = "## #,###,###.##";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1000, 600);
-            this.Controls.Add(this.metroPanel1);
+            this.Controls.Add(this.Status);
+            this.Controls.Add(this.Tiles);
             this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "FrmMain";
             this.Text = "Personal Finance Management Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMain_FormClosed);
             this.Shown += new System.EventHandler(this.FrmMain_Shown);
-            this.metroPanel1.ResumeLayout(false);
+            this.Tiles.ResumeLayout(false);
             this.FlowLayoutPanel.ResumeLayout(false);
+            this.Status.ResumeLayout(false);
+            this.Status.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel Tiles;
         private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanel;
         private MetroFramework.Controls.MetroTile NewIncome;
         private MetroFramework.Controls.MetroTile ManageSources;
         private MetroFramework.Controls.MetroTile NewExpense;
         private MetroFramework.Controls.MetroTile BankAccount;
+        private MetroFramework.Controls.MetroPanel Status;
+        private MetroFramework.Controls.MetroLabel Stats;
+        private MetroFramework.Controls.MetroLabel TotalIncome;
+        private MetroFramework.Controls.MetroLabel TotalIncomeText;
+        private MetroFramework.Controls.MetroLabel TotalExpenseText;
+        private MetroFramework.Controls.MetroLabel TotalExpense;
     }
 }
 
