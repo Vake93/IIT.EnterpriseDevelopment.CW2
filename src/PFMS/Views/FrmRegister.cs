@@ -104,7 +104,7 @@ namespace PFMS.Views
 
         private async void FrmRegister_Shown(object sender, System.EventArgs e)
         {
-            var currencies = await _currencyQuery.FindAsync(c => true);
+            var currencies = await _currencyQuery.FindAsync(c => !c.Deleted);
 
             CmbCurrency.Items.Clear();
             CmbCurrency.Items.AddRange(currencies.Select(c => c.ISOCurrencyCode).ToArray());
