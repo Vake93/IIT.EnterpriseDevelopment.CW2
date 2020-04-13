@@ -144,6 +144,7 @@
             this.BankAccount.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.BankAccount.UseSelectable = true;
             this.BankAccount.UseTileImage = true;
+            this.BankAccount.Click += new System.EventHandler(this.BankAccount_Click);
             // 
             // Status
             // 

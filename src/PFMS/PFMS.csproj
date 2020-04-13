@@ -270,6 +270,12 @@
     <Compile Include="Services\ServiceModule.cs" />
     <Compile Include="Services\ViewActivator\IViewActivatorService.cs" />
     <Compile Include="Services\ViewActivator\ViewActivatorService.cs" />
+    <Compile Include="Views\Common\CtrlBankAccountItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Common\CtrlBankAccountItem.Designer.cs">
+      <DependentUpon>CtrlBankAccountItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Common\CtrlExpenseItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -287,6 +293,12 @@
     </Compile>
     <Compile Include="Views\Common\CtrlSourceItem.Designer.cs">
       <DependentUpon>CtrlSourceItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmBankAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmBankAccount.Designer.cs">
+      <DependentUpon>FrmBankAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmExpense.cs">
       <SubType>Form</SubType>
@@ -340,6 +352,9 @@
     <None Include="Resources\icons8-initiate-money-transfer-101.png" />
     <None Include="Resources\icons8-initiate-money-transfer-100.png" />
     <None Include="Resources\icons8-exchange-100.png" />
+    <EmbeddedResource Include="Views\Common\CtrlBankAccountItem.resx">
+      <DependentUpon>CtrlBankAccountItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Common\CtrlExpenseItem.resx">
       <DependentUpon>CtrlExpenseItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -348,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Common\CtrlSourceItem.resx">
       <DependentUpon>CtrlSourceItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmBankAccount.resx">
+      <DependentUpon>FrmBankAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmExpense.resx">
       <DependentUpon>FrmExpense.cs</DependentUpon>

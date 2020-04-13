@@ -74,5 +74,10 @@ namespace PFMS.Views
         {
             _viewActivatorService.ShowDialog<FrmExpense>(this);
         }
+
+        private void BankAccount_Click(object sender, EventArgs e)
+        {
+            _viewActivatorService.ShowDialog<FrmBankAccount>(this);
+        }
     }
 }

@@ -7,12 +7,25 @@ namespace PFMS.Domain.Models.BankAccounts
     public enum BankAccountType
     {
         SavingsAccount,
-        FixedDisposite,
+        FixedDeposit,
         CurrentAccount
     }
 
     public class BankAccount : Entity
     {
+        public BankAccount(Guid userId, string bankName, string accountName)
+        {
+            UserId = userId;
+            BankName = bankName;
+            AccountName = accountName;
+        }
+
+        private BankAccount()
+        {
+            BankName = string.Empty;
+            AccountName = string.Empty;
+        }
+
         public string BankName { get; set; }
 
         public string AccountName { get; set; }
