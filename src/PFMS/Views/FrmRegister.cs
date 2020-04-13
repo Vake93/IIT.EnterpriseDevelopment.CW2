@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Options;
 using PFMS.Configurations;
 using PFMS.Domain.Models.Users;
+using PFMS.Domain.Queries.Currencies;
 using PFMS.Domain.Repositories.Users;
 using PFMS.Services.Authentication;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace PFMS.Views
@@ -13,12 +15,15 @@ namespace PFMS.Views
         private readonly IAuthenticationService _authenticationService;
         private readonly StyleConfiguration _styleConfiguration;
         private readonly IUserRepository _userRepository;
+        private readonly ICurrencyQuery _currencyQuery;
 
         public FrmRegister(
+            ICurrencyQuery currencyQuery,
             IUserRepository userRepository,
             IAuthenticationService authenticationService,
             IOptions<StyleConfiguration> styleConfigurationOption)
         {
+            _currencyQuery = currencyQuery;
             _userRepository = userRepository;
             _authenticationService = authenticationService;
             _styleConfiguration = styleConfigurationOption.Value;
@@ -40,7 +45,10 @@ namespace PFMS.Views
                 Spinner.Visible = true;
                 BtnCreateAccount.Enabled = false;
 
-                var user = new User(FirstNameText.Text, LastNameText.Text, UserNameText.Text);
+                var user = new User(FirstNameText.Text, LastNameText.Text, UserNameText.Text)
+                {
+                    DefaultISOCurrencyCode = CmbCurrency.SelectedItem as string
+                };
 
                 _userRepository.Add(user);
 
@@ -67,6 +75,12 @@ namespace PFMS.Views
                 return false;
             }
 
+            if (CmbCurrency.SelectedItem is null)
+            {
+                ErrorText.Text = "Currency is required.";
+                return false;
+            }
+
             if (string.IsNullOrEmpty(UserNameText.Text))
             {
                 ErrorText.Text = "User name is required.";
@@ -86,6 +100,14 @@ namespace PFMS.Views
             }
 
             return true;
+        }
+
+        private async void FrmRegister_Shown(object sender, System.EventArgs e)
+        {
+            var currencies = await _currencyQuery.FindAsync(c => true);
+
+            CmbCurrency.Items.Clear();
+            CmbCurrency.Items.AddRange(currencies.Select(c => c.ISOCurrencyCode).ToArray());
         }
     }
 }

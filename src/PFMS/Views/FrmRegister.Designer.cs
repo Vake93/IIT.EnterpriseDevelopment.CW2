@@ -48,6 +48,9 @@
             this.ConfirmPassword = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.Spinner = new MetroFramework.Controls.MetroProgressSpinner();
+            this.Currency = new MetroFramework.Controls.MetroLabel();
+            this.CmbCurrency = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.SuspendLayout();
             // 
             // FirstName
@@ -74,7 +77,7 @@
             // 
             // 
             this.FirstNameText.CustomButton.Image = null;
-            this.FirstNameText.CustomButton.Location = new System.Drawing.Point(364, 1);
+            this.FirstNameText.CustomButton.Location = new System.Drawing.Point(787, 1);
             this.FirstNameText.CustomButton.Name = "";
             this.FirstNameText.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.FirstNameText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -92,7 +95,7 @@
             this.FirstNameText.SelectionLength = 0;
             this.FirstNameText.SelectionStart = 0;
             this.FirstNameText.ShortcutsEnabled = true;
-            this.FirstNameText.Size = new System.Drawing.Size(386, 23);
+            this.FirstNameText.Size = new System.Drawing.Size(809, 23);
             this.FirstNameText.TabIndex = 0;
             this.FirstNameText.UseSelectable = true;
             this.FirstNameText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -104,7 +107,7 @@
             // 
             // 
             this.LastNameText.CustomButton.Image = null;
-            this.LastNameText.CustomButton.Location = new System.Drawing.Point(364, 1);
+            this.LastNameText.CustomButton.Location = new System.Drawing.Point(787, 1);
             this.LastNameText.CustomButton.Name = "";
             this.LastNameText.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.LastNameText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -122,7 +125,7 @@
             this.LastNameText.SelectionLength = 0;
             this.LastNameText.SelectionStart = 0;
             this.LastNameText.ShortcutsEnabled = true;
-            this.LastNameText.Size = new System.Drawing.Size(386, 23);
+            this.LastNameText.Size = new System.Drawing.Size(809, 23);
             this.LastNameText.TabIndex = 1;
             this.LastNameText.UseSelectable = true;
             this.LastNameText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -131,7 +134,7 @@
             // UserName
             // 
             this.UserName.AutoSize = true;
-            this.UserName.Location = new System.Drawing.Point(23, 200);
+            this.UserName.Location = new System.Drawing.Point(23, 239);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(78, 19);
             this.UserName.TabIndex = 4;
@@ -143,7 +146,7 @@
             // 
             // 
             this.UserNameText.CustomButton.Image = null;
-            this.UserNameText.CustomButton.Location = new System.Drawing.Point(364, 1);
+            this.UserNameText.CustomButton.Location = new System.Drawing.Point(787, 1);
             this.UserNameText.CustomButton.Name = "";
             this.UserNameText.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.UserNameText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -152,7 +155,7 @@
             this.UserNameText.CustomButton.UseSelectable = true;
             this.UserNameText.CustomButton.Visible = false;
             this.UserNameText.Lines = new string[0];
-            this.UserNameText.Location = new System.Drawing.Point(147, 196);
+            this.UserNameText.Location = new System.Drawing.Point(147, 235);
             this.UserNameText.MaxLength = 32767;
             this.UserNameText.Name = "UserNameText";
             this.UserNameText.PasswordChar = '\0';
@@ -161,8 +164,8 @@
             this.UserNameText.SelectionLength = 0;
             this.UserNameText.SelectionStart = 0;
             this.UserNameText.ShortcutsEnabled = true;
-            this.UserNameText.Size = new System.Drawing.Size(386, 23);
-            this.UserNameText.TabIndex = 3;
+            this.UserNameText.Size = new System.Drawing.Size(809, 23);
+            this.UserNameText.TabIndex = 4;
             this.UserNameText.UseSelectable = true;
             this.UserNameText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.UserNameText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -171,7 +174,7 @@
             // 
             this.RequiredSign1.AutoSize = true;
             this.RequiredSign1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.RequiredSign1.Location = new System.Drawing.Point(539, 85);
+            this.RequiredSign1.Location = new System.Drawing.Point(962, 89);
             this.RequiredSign1.Name = "RequiredSign1";
             this.RequiredSign1.Size = new System.Drawing.Size(15, 19);
             this.RequiredSign1.TabIndex = 6;
@@ -182,7 +185,7 @@
             // 
             this.RequiredSign2.AutoSize = true;
             this.RequiredSign2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.RequiredSign2.Location = new System.Drawing.Point(539, 114);
+            this.RequiredSign2.Location = new System.Drawing.Point(962, 118);
             this.RequiredSign2.Name = "RequiredSign2";
             this.RequiredSign2.Size = new System.Drawing.Size(15, 19);
             this.RequiredSign2.TabIndex = 7;
@@ -193,7 +196,7 @@
             // 
             this.RequiredSign3.AutoSize = true;
             this.RequiredSign3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.RequiredSign3.Location = new System.Drawing.Point(539, 196);
+            this.RequiredSign3.Location = new System.Drawing.Point(962, 239);
             this.RequiredSign3.Name = "RequiredSign3";
             this.RequiredSign3.Size = new System.Drawing.Size(15, 19);
             this.RequiredSign3.TabIndex = 8;
@@ -215,7 +218,7 @@
             // 
             // 
             this.TitleText.CustomButton.Image = null;
-            this.TitleText.CustomButton.Location = new System.Drawing.Point(364, 1);
+            this.TitleText.CustomButton.Location = new System.Drawing.Point(787, 1);
             this.TitleText.CustomButton.Name = "";
             this.TitleText.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.TitleText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -233,7 +236,7 @@
             this.TitleText.SelectionLength = 0;
             this.TitleText.SelectionStart = 0;
             this.TitleText.ShortcutsEnabled = true;
-            this.TitleText.Size = new System.Drawing.Size(386, 23);
+            this.TitleText.Size = new System.Drawing.Size(809, 23);
             this.TitleText.TabIndex = 2;
             this.TitleText.UseSelectable = true;
             this.TitleText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -245,7 +248,7 @@
             // 
             // 
             this.PasswordText.CustomButton.Image = null;
-            this.PasswordText.CustomButton.Location = new System.Drawing.Point(364, 1);
+            this.PasswordText.CustomButton.Location = new System.Drawing.Point(787, 1);
             this.PasswordText.CustomButton.Name = "";
             this.PasswordText.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.PasswordText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -254,7 +257,7 @@
             this.PasswordText.CustomButton.UseSelectable = true;
             this.PasswordText.CustomButton.Visible = false;
             this.PasswordText.Lines = new string[0];
-            this.PasswordText.Location = new System.Drawing.Point(147, 225);
+            this.PasswordText.Location = new System.Drawing.Point(147, 264);
             this.PasswordText.MaxLength = 32767;
             this.PasswordText.Name = "PasswordText";
             this.PasswordText.PasswordChar = '*';
@@ -263,8 +266,8 @@
             this.PasswordText.SelectionLength = 0;
             this.PasswordText.SelectionStart = 0;
             this.PasswordText.ShortcutsEnabled = true;
-            this.PasswordText.Size = new System.Drawing.Size(386, 23);
-            this.PasswordText.TabIndex = 4;
+            this.PasswordText.Size = new System.Drawing.Size(809, 23);
+            this.PasswordText.TabIndex = 5;
             this.PasswordText.UseSelectable = true;
             this.PasswordText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.PasswordText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -272,7 +275,7 @@
             // Password
             // 
             this.Password.AutoSize = true;
-            this.Password.Location = new System.Drawing.Point(23, 229);
+            this.Password.Location = new System.Drawing.Point(23, 268);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(66, 19);
             this.Password.TabIndex = 12;
@@ -282,7 +285,7 @@
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.metroLabel2.Location = new System.Drawing.Point(539, 225);
+            this.metroLabel2.Location = new System.Drawing.Point(962, 268);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(15, 19);
             this.metroLabel2.TabIndex = 13;
@@ -291,10 +294,11 @@
             // 
             // BtnCreateAccount
             // 
-            this.BtnCreateAccount.Location = new System.Drawing.Point(439, 350);
+            this.BtnCreateAccount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnCreateAccount.Location = new System.Drawing.Point(873, 533);
             this.BtnCreateAccount.Name = "BtnCreateAccount";
             this.BtnCreateAccount.Size = new System.Drawing.Size(104, 44);
-            this.BtnCreateAccount.TabIndex = 6;
+            this.BtnCreateAccount.TabIndex = 7;
             this.BtnCreateAccount.Text = "Create Account";
             this.BtnCreateAccount.UseSelectable = true;
             this.BtnCreateAccount.Click += new System.EventHandler(this.BtnCreateAccount_Click);
@@ -303,7 +307,7 @@
             // 
             this.ErrorText.AutoSize = true;
             this.ErrorText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ErrorText.Location = new System.Drawing.Point(23, 305);
+            this.ErrorText.Location = new System.Drawing.Point(23, 343);
             this.ErrorText.Name = "ErrorText";
             this.ErrorText.Size = new System.Drawing.Size(65, 19);
             this.ErrorText.TabIndex = 15;
@@ -316,7 +320,7 @@
             // 
             // 
             this.ConfirmPasswordText.CustomButton.Image = null;
-            this.ConfirmPasswordText.CustomButton.Location = new System.Drawing.Point(364, 1);
+            this.ConfirmPasswordText.CustomButton.Location = new System.Drawing.Point(787, 1);
             this.ConfirmPasswordText.CustomButton.Name = "";
             this.ConfirmPasswordText.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.ConfirmPasswordText.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -325,7 +329,7 @@
             this.ConfirmPasswordText.CustomButton.UseSelectable = true;
             this.ConfirmPasswordText.CustomButton.Visible = false;
             this.ConfirmPasswordText.Lines = new string[0];
-            this.ConfirmPasswordText.Location = new System.Drawing.Point(147, 254);
+            this.ConfirmPasswordText.Location = new System.Drawing.Point(147, 293);
             this.ConfirmPasswordText.MaxLength = 32767;
             this.ConfirmPasswordText.Name = "ConfirmPasswordText";
             this.ConfirmPasswordText.PasswordChar = '*';
@@ -334,8 +338,8 @@
             this.ConfirmPasswordText.SelectionLength = 0;
             this.ConfirmPasswordText.SelectionStart = 0;
             this.ConfirmPasswordText.ShortcutsEnabled = true;
-            this.ConfirmPasswordText.Size = new System.Drawing.Size(386, 23);
-            this.ConfirmPasswordText.TabIndex = 5;
+            this.ConfirmPasswordText.Size = new System.Drawing.Size(809, 23);
+            this.ConfirmPasswordText.TabIndex = 6;
             this.ConfirmPasswordText.UseSelectable = true;
             this.ConfirmPasswordText.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.ConfirmPasswordText.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -343,7 +347,7 @@
             // ConfirmPassword
             // 
             this.ConfirmPassword.AutoSize = true;
-            this.ConfirmPassword.Location = new System.Drawing.Point(23, 258);
+            this.ConfirmPassword.Location = new System.Drawing.Point(23, 297);
             this.ConfirmPassword.Name = "ConfirmPassword";
             this.ConfirmPassword.Size = new System.Drawing.Size(118, 19);
             this.ConfirmPassword.TabIndex = 17;
@@ -353,7 +357,7 @@
             // 
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.metroLabel3.Location = new System.Drawing.Point(539, 254);
+            this.metroLabel3.Location = new System.Drawing.Point(962, 297);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(15, 19);
             this.metroLabel3.TabIndex = 18;
@@ -362,7 +366,7 @@
             // 
             // Spinner
             // 
-            this.Spinner.Location = new System.Drawing.Point(389, 350);
+            this.Spinner.Location = new System.Drawing.Point(823, 533);
             this.Spinner.Maximum = 100;
             this.Spinner.Name = "Spinner";
             this.Spinner.Size = new System.Drawing.Size(44, 44);
@@ -372,11 +376,44 @@
             this.Spinner.Value = 75;
             this.Spinner.Visible = false;
             // 
+            // Currency
+            // 
+            this.Currency.AutoSize = true;
+            this.Currency.Location = new System.Drawing.Point(23, 182);
+            this.Currency.Name = "Currency";
+            this.Currency.Size = new System.Drawing.Size(64, 19);
+            this.Currency.TabIndex = 20;
+            this.Currency.Text = "Currency:";
+            // 
+            // CmbCurrency
+            // 
+            this.CmbCurrency.FormattingEnabled = true;
+            this.CmbCurrency.ItemHeight = 23;
+            this.CmbCurrency.Location = new System.Drawing.Point(147, 172);
+            this.CmbCurrency.Name = "CmbCurrency";
+            this.CmbCurrency.Size = new System.Drawing.Size(809, 29);
+            this.CmbCurrency.TabIndex = 3;
+            this.CmbCurrency.UseSelectable = true;
+            // 
+            // metroLabel4
+            // 
+            this.metroLabel4.AutoSize = true;
+            this.metroLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.metroLabel4.Location = new System.Drawing.Point(962, 172);
+            this.metroLabel4.Name = "metroLabel4";
+            this.metroLabel4.Size = new System.Drawing.Size(15, 19);
+            this.metroLabel4.TabIndex = 22;
+            this.metroLabel4.Text = "*";
+            this.metroLabel4.UseCustomForeColor = true;
+            // 
             // FrmRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 417);
+            this.ClientSize = new System.Drawing.Size(1000, 600);
+            this.Controls.Add(this.metroLabel4);
+            this.Controls.Add(this.CmbCurrency);
+            this.Controls.Add(this.Currency);
             this.Controls.Add(this.Spinner);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.ConfirmPassword);
@@ -399,10 +436,12 @@
             this.Controls.Add(this.FirstName);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "FrmRegister";
             this.Resizable = false;
             this.ShowInTaskbar = false;
             this.Text = "Register New User";
+            this.Shown += new System.EventHandler(this.FrmRegister_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -430,5 +469,8 @@
         private MetroFramework.Controls.MetroLabel ConfirmPassword;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroProgressSpinner Spinner;
+        private MetroFramework.Controls.MetroLabel Currency;
+        private MetroFramework.Controls.MetroComboBox CmbCurrency;
+        private MetroFramework.Controls.MetroLabel metroLabel4;
     }
 }
