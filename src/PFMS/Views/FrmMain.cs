@@ -69,5 +69,10 @@ namespace PFMS.Views
         {
             _viewActivatorService.ShowDialog<FrmIncome>(this);
         }
+
+        private void NewExpense_Click(object sender, EventArgs e)
+        {
+            _viewActivatorService.ShowDialog<FrmExpense>(this);
+        }
     }
 }

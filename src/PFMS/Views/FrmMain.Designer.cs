@@ -110,6 +110,7 @@
             this.NewExpense.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.NewExpense.UseSelectable = true;
             this.NewExpense.UseTileImage = true;
+            this.NewExpense.Click += new System.EventHandler(this.NewExpense_Click);
             // 
             // ManageSources
             // 
