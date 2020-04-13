@@ -52,6 +52,8 @@ namespace PFMS.Views.Common
                 IncomeAmountText.Text = Income.Amount.ToString();
                 CmbIncomeSource.SelectedItem = _incomeSources.FirstOrDefault(i => i.Id == Income.IncomeSourceId);
                 IncomeDate.Value = Income.Date;
+
+                Amount.Text = $"Amount ({Income.ISOCurrencyCode}):";
             }
 
             EditMode = false;

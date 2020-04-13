@@ -52,6 +52,8 @@ namespace PFMS.Views.Common
                 ExpenseAmountText.Text = Expense.Amount.ToString();
                 CmbExpenseSource.SelectedItem = _expenseSources.FirstOrDefault(i => i.Id == Expense.ExpenseSourceId);
                 ExpenseDate.Value = Expense.Date;
+
+                Amount.Text = $"Amount ({Expense.ISOCurrencyCode}):";
             }
 
             EditMode = false;
