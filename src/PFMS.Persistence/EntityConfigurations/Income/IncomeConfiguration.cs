@@ -8,7 +8,7 @@ namespace PFMS.Persistence.EntityConfigurations.Income
     {
         public void Configure(EntityTypeBuilder<IncomeModel> builder)
         {
-            builder.ToTable("IncomeModel");
+            builder.ToTable("Income");
 
             builder.HasKey(i => i.Id);
 
