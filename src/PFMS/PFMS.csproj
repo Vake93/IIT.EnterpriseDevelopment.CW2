@@ -257,6 +257,11 @@
   <ItemGroup>
     <Compile Include="Configurations\ThemeConfiguration.cs" />
     <Compile Include="DesignTimeDbContextFactory.cs" />
+    <Compile Include="Migrations\20200413063629_Initital.cs" />
+    <Compile Include="Migrations\20200413063629_Initital.designer.cs">
+      <DependentUpon>20200413063629_Initital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\DatabaseContextModelSnapshot.cs" />
     <Compile Include="Seeders\CurrencySeeder.cs" />
     <Compile Include="Seeders\ISeeder.cs" />
     <Compile Include="Seeders\SeedOchestrator.cs" />
