@@ -150,6 +150,8 @@ namespace PFMS.Views
 
         private async void CtrlSourceItem_Deleted(CtrlSourceItem ctrlSourceItem)
         {
+            SetSpinnerSpinning(true);
+
             ctrlSourceItem.Saved -= CtrlSourceItem_Saved;
             ctrlSourceItem.Deleted -= CtrlSourceItem_Deleted;
 
@@ -163,9 +165,8 @@ namespace PFMS.Views
                 {
                     incomeSource.Delete();
                     _incomeSourceRepository.Update(incomeSource);
+                    await _incomeSourceRepository.SaveChangesAsync();
                 }
-
-                await _incomeSourceRepository.SaveChangesAsync();
             }
 
             if (ctrlSourceItem.Source is ExpenseSource expenseSource)
@@ -178,10 +179,11 @@ namespace PFMS.Views
                 {
                     expenseSource.Delete();
                     _expenseSourceRepository.Update(expenseSource);
+                    await _expenseSourceRepository.SaveChangesAsync();
                 }
-
-                await _expenseSourceRepository.SaveChangesAsync();
             }
+
+            SetSpinnerSpinning(false);
         }
     }
 }

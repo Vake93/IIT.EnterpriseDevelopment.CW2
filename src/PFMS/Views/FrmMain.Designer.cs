@@ -35,11 +35,11 @@
             this.ManageSources = new MetroFramework.Controls.MetroTile();
             this.BankAccount = new MetroFramework.Controls.MetroTile();
             this.Status = new MetroFramework.Controls.MetroPanel();
-            this.Stats = new MetroFramework.Controls.MetroLabel();
-            this.TotalIncome = new MetroFramework.Controls.MetroLabel();
-            this.TotalIncomeText = new MetroFramework.Controls.MetroLabel();
-            this.TotalExpense = new MetroFramework.Controls.MetroLabel();
             this.TotalExpenseText = new MetroFramework.Controls.MetroLabel();
+            this.TotalExpense = new MetroFramework.Controls.MetroLabel();
+            this.TotalIncomeText = new MetroFramework.Controls.MetroLabel();
+            this.TotalIncome = new MetroFramework.Controls.MetroLabel();
+            this.Stats = new MetroFramework.Controls.MetroLabel();
             this.Tiles.SuspendLayout();
             this.FlowLayoutPanel.SuspendLayout();
             this.Status.SuspendLayout();
@@ -93,6 +93,7 @@
             this.NewIncome.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.NewIncome.UseSelectable = true;
             this.NewIncome.UseTileImage = true;
+            this.NewIncome.Click += new System.EventHandler(this.NewIncome_Click);
             // 
             // NewExpense
             // 
@@ -163,34 +164,14 @@
             this.Status.VerticalScrollbarHighlightOnWheel = false;
             this.Status.VerticalScrollbarSize = 10;
             // 
-            // Stats
+            // TotalExpenseText
             // 
-            this.Stats.AutoSize = true;
-            this.Stats.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.Stats.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.Stats.Location = new System.Drawing.Point(3, 3);
-            this.Stats.Name = "Stats";
-            this.Stats.Size = new System.Drawing.Size(159, 25);
-            this.Stats.TabIndex = 2;
-            this.Stats.Text = "Monthly Summary";
-            // 
-            // TotalIncome
-            // 
-            this.TotalIncome.AutoSize = true;
-            this.TotalIncome.Location = new System.Drawing.Point(16, 48);
-            this.TotalIncome.Name = "TotalIncome";
-            this.TotalIncome.Size = new System.Drawing.Size(83, 19);
-            this.TotalIncome.TabIndex = 3;
-            this.TotalIncome.Text = "Total Income";
-            // 
-            // TotalIncomeText
-            // 
-            this.TotalIncomeText.AutoSize = true;
-            this.TotalIncomeText.Location = new System.Drawing.Point(183, 48);
-            this.TotalIncomeText.Name = "TotalIncomeText";
-            this.TotalIncomeText.Size = new System.Drawing.Size(110, 19);
-            this.TotalIncomeText.TabIndex = 4;
-            this.TotalIncomeText.Text = "## #,###,###.##";
+            this.TotalExpenseText.AutoSize = true;
+            this.TotalExpenseText.Location = new System.Drawing.Point(183, 67);
+            this.TotalExpenseText.Name = "TotalExpenseText";
+            this.TotalExpenseText.Size = new System.Drawing.Size(110, 19);
+            this.TotalExpenseText.TabIndex = 6;
+            this.TotalExpenseText.Text = "## #,###,###.##";
             // 
             // TotalExpense
             // 
@@ -201,14 +182,34 @@
             this.TotalExpense.TabIndex = 5;
             this.TotalExpense.Text = "Total Expense";
             // 
-            // TotalExpenseText
+            // TotalIncomeText
             // 
-            this.TotalExpenseText.AutoSize = true;
-            this.TotalExpenseText.Location = new System.Drawing.Point(183, 67);
-            this.TotalExpenseText.Name = "TotalExpenseText";
-            this.TotalExpenseText.Size = new System.Drawing.Size(110, 19);
-            this.TotalExpenseText.TabIndex = 6;
-            this.TotalExpenseText.Text = "## #,###,###.##";
+            this.TotalIncomeText.AutoSize = true;
+            this.TotalIncomeText.Location = new System.Drawing.Point(183, 48);
+            this.TotalIncomeText.Name = "TotalIncomeText";
+            this.TotalIncomeText.Size = new System.Drawing.Size(110, 19);
+            this.TotalIncomeText.TabIndex = 4;
+            this.TotalIncomeText.Text = "## #,###,###.##";
+            // 
+            // TotalIncome
+            // 
+            this.TotalIncome.AutoSize = true;
+            this.TotalIncome.Location = new System.Drawing.Point(16, 48);
+            this.TotalIncome.Name = "TotalIncome";
+            this.TotalIncome.Size = new System.Drawing.Size(83, 19);
+            this.TotalIncome.TabIndex = 3;
+            this.TotalIncome.Text = "Total Income";
+            // 
+            // Stats
+            // 
+            this.Stats.AutoSize = true;
+            this.Stats.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.Stats.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.Stats.Location = new System.Drawing.Point(3, 3);
+            this.Stats.Name = "Stats";
+            this.Stats.Size = new System.Drawing.Size(159, 25);
+            this.Stats.TabIndex = 2;
+            this.Stats.Text = "Monthly Summary";
             // 
             // FrmMain
             // 

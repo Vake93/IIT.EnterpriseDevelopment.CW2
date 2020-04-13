@@ -1,5 +1,6 @@
 ﻿using MetroFramework;
 using MetroFramework.Components;
+using MetroFramework.Controls;
 using MetroFramework.Interfaces;
 using PFMS.Domain.Models.Sources;
 using System;
@@ -7,7 +8,7 @@ using System.Windows.Forms;
 
 namespace PFMS.Views.Common
 {
-    public partial class CtrlSourceItem : UserControl
+    public partial class CtrlSourceItem : MetroUserControl
     {
         private bool _editMode;
 
@@ -17,9 +18,9 @@ namespace PFMS.Views.Common
 
             InitializeComponent();
 
-            MetroPanel.StyleManager = styleManager;
+            StyleManager = styleManager;
 
-            foreach (var control in MetroPanel.Controls)
+            foreach (var control in Controls)
             {
                 if (control is IMetroControl metroControl)
                 {

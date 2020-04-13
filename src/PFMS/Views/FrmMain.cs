@@ -64,5 +64,10 @@ namespace PFMS.Views
         {
             _viewActivatorService.ShowDialog<FrmSources>(this);
         }
+
+        private void NewIncome_Click(object sender, EventArgs e)
+        {
+            _viewActivatorService.ShowDialog<FrmIncome>(this);
+        }
     }
 }
