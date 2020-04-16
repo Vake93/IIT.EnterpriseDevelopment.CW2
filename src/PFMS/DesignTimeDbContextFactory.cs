@@ -24,10 +24,7 @@ namespace PFMS
 
             builder.UseSqlServer(
                 configuration.GetConnectionString("DefaultConnection"),
-                sqlServerOptionsAction: sqlOptions =>
-                {
-                    sqlOptions.MigrationsAssembly(assemblyName);
-                });
+                sqlServerOptionsAction: sqlOptions => sqlOptions.MigrationsAssembly(assemblyName));
 
             return new DatabaseContext(builder.Options);
         }
