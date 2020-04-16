@@ -63,6 +63,16 @@ namespace PFMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_calendar_plus_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-calendar-plus-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_exchange_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-exchange-100", resourceCulture);
@@ -96,6 +106,16 @@ namespace PFMS.Properties {
         internal static System.Drawing.Bitmap icons8_merchant_account_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-merchant-account-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_profit_report_100 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-profit-report-100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
