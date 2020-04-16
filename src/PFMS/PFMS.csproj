@@ -261,6 +261,10 @@
     <Compile Include="Migrations\20200413063629_Initital.designer.cs">
       <DependentUpon>20200413063629_Initital.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200416181933_CreatedEvents.cs" />
+    <Compile Include="Migrations\20200416181933_CreatedEvents.designer.cs">
+      <DependentUpon>20200416181933_CreatedEvents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\DatabaseContextModelSnapshot.cs" />
     <Compile Include="Seeders\CurrencySeeder.cs" />
     <Compile Include="Seeders\ISeeder.cs" />
@@ -278,6 +282,12 @@
     </Compile>
     <Compile Include="Views\Common\CtrlBankAccountItem.Designer.cs">
       <DependentUpon>CtrlBankAccountItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Common\CtrlEventItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Common\CtrlEventItem.Designer.cs">
+      <DependentUpon>CtrlEventItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Common\CtrlExpenseItem.cs">
       <SubType>UserControl</SubType>
@@ -302,6 +312,12 @@
     </Compile>
     <Compile Include="Views\FrmBankAccount.Designer.cs">
       <DependentUpon>FrmBankAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmCalendar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmCalendar.Designer.cs">
+      <DependentUpon>FrmCalendar.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmExpense.cs">
       <SubType>Form</SubType>
@@ -360,6 +376,9 @@
     <EmbeddedResource Include="Views\Common\CtrlBankAccountItem.resx">
       <DependentUpon>CtrlBankAccountItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Common\CtrlEventItem.resx">
+      <DependentUpon>CtrlEventItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Common\CtrlExpenseItem.resx">
       <DependentUpon>CtrlExpenseItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -371,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmBankAccount.resx">
       <DependentUpon>FrmBankAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmCalendar.resx">
+      <DependentUpon>FrmCalendar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmExpense.resx">
       <DependentUpon>FrmExpense.cs</DependentUpon>

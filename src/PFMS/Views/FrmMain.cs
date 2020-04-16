@@ -100,5 +100,10 @@ namespace PFMS.Views
         {
             _viewActivatorService.ShowDialog<FrmBankAccount>(this);
         }
+
+        private void Calendar_Click(object sender, EventArgs e)
+        {
+            _viewActivatorService.ShowDialog<FrmCalendar>(this);
+        }
     }
 }
