@@ -267,6 +267,9 @@
     <Compile Include="Seeders\SeedOchestrator.cs" />
     <Compile Include="Services\Authentication\AuthenticationService.cs" />
     <Compile Include="Services\Authentication\IAuthenticationService.cs" />
+    <Compile Include="Services\Reports\IReportService.cs" />
+    <Compile Include="Services\Reports\MonthlySummeryReport.cs" />
+    <Compile Include="Services\Reports\ReportService.cs" />
     <Compile Include="Services\ServiceModule.cs" />
     <Compile Include="Services\ViewActivator\IViewActivatorService.cs" />
     <Compile Include="Services\ViewActivator\ViewActivatorService.cs" />
@@ -348,6 +351,8 @@
     <Content Include="appsettings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\icons8-profit-report-100.png" />
+    <None Include="Resources\icons8-calendar-plus-100.png" />
     <None Include="Resources\icons8-merchant-account-100.png" />
     <None Include="Resources\icons8-initiate-money-transfer-101.png" />
     <None Include="Resources\icons8-initiate-money-transfer-100.png" />
