@@ -28,6 +28,33 @@ namespace PFMS.Views
             ErrorText.Text = string.Empty;
         }
 
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private void Register_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
+            Close();
+        }
+
+        private void FrmLogin_Shown(object sender, EventArgs e)
+        {
+            using (var credential = new CredentialManagement.Credential())
+            {
+                credential.Target = Assembly.GetExecutingAssembly().FullName;
+
+                if (credential.Load())
+                {
+                    UserNameText.Text = credential.Username;
+                    PasswordText.Text = credential.Password;
+                    RememberMe.Checked = true;
+                }
+            }
+        }
+
         private async void BtnLogin_Click(object sender, EventArgs e)
         {
             ErrorText.Text = string.Empty;
@@ -68,31 +95,5 @@ namespace PFMS.Views
             }
         }
 
-        private void BtnExit_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-            Close();
-        }
-
-        private void Register_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Abort;
-            Close();
-        }
-
-        private void FrmLogin_Shown(object sender, EventArgs e)
-        {
-            using (var credential = new CredentialManagement.Credential())
-            {
-                credential.Target = Assembly.GetExecutingAssembly().FullName;
-
-                if (credential.Load())
-                {
-                    UserNameText.Text = credential.Username;
-                    PasswordText.Text = credential.Password;
-                    RememberMe.Checked = true;
-                }
-            }
-        }
     }
 }

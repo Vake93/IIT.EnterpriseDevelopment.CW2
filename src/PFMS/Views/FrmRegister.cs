@@ -5,6 +5,7 @@ using PFMS.Domain.Models.Users;
 using PFMS.Domain.Queries.Currencies;
 using PFMS.Domain.Repositories.Users;
 using PFMS.Services.Authentication;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -34,31 +35,6 @@ namespace PFMS.Views
 
             StyleManager = _styleConfiguration.Build(this);
             ErrorText.Text = string.Empty;
-        }
-
-        private async void BtnCreateAccount_Click(object sender, System.EventArgs e)
-        {
-            if (ValidateFrom())
-            {
-                ErrorText.Text = string.Empty;
-                Spinner.Spinning = true;
-                Spinner.Visible = true;
-                BtnCreateAccount.Enabled = false;
-
-                var user = new User(FirstNameText.Text, LastNameText.Text, UserNameText.Text)
-                {
-                    DefaultISOCurrencyCode = CmbCurrency.SelectedItem as string
-                };
-
-                _userRepository.Add(user);
-
-                await _userRepository.SaveChangesAsync();
-                await _authenticationService.SetPasswordAsync(UserNameText.Text, PasswordText.Text);
-                await _authenticationService.LoginUserAsync(UserNameText.Text, PasswordText.Text);
-
-                DialogResult = DialogResult.OK;
-                Close();
-            }
         }
 
         private bool ValidateFrom()
@@ -102,12 +78,38 @@ namespace PFMS.Views
             return true;
         }
 
-        private async void FrmRegister_Shown(object sender, System.EventArgs e)
+        private async void FrmRegister_Shown(object sender, EventArgs e)
         {
             var currencies = await _currencyQuery.FindAsync(c => !c.Deleted);
 
             CmbCurrency.Items.Clear();
             CmbCurrency.Items.AddRange(currencies.Select(c => c.ISOCurrencyCode).ToArray());
         }
+
+        private async void BtnCreateAccount_Click(object sender, EventArgs e)
+        {
+            if (ValidateFrom())
+            {
+                ErrorText.Text = string.Empty;
+                Spinner.Spinning = true;
+                Spinner.Visible = true;
+                BtnCreateAccount.Enabled = false;
+
+                var user = new User(FirstNameText.Text, LastNameText.Text, UserNameText.Text)
+                {
+                    DefaultISOCurrencyCode = CmbCurrency.SelectedItem as string
+                };
+
+                _userRepository.Add(user);
+
+                await _userRepository.SaveChangesAsync();
+                await _authenticationService.SetPasswordAsync(UserNameText.Text, PasswordText.Text);
+                await _authenticationService.LoginUserAsync(UserNameText.Text, PasswordText.Text);
+
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+        }
+
     }
 }

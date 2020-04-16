@@ -58,6 +58,27 @@ namespace PFMS.Views
             Spinner.BringToFront();
         }
 
+        private void NewBankAccount_Click(object sender, System.EventArgs e)
+        {
+            var ctrlBankAccount = new CtrlBankAccountItem(
+                StyleManager,
+                _bankAccountTypes,
+                _currencies,
+                new BankAccount(_authenticationService.LoggedInUser.Id, string.Empty, string.Empty)
+                {
+                    BankAccountType = BankAccountType.SavingsAccount,
+                    ISOCurrencyCode = _authenticationService.LoggedInUser.DefaultISOCurrencyCode
+                })
+            {
+                EditMode = true
+            };
+
+            ctrlBankAccount.Saved += CtrlBankAccount_Saved;
+            ctrlBankAccount.Deleted += CtrlBankAccount_Deleted;
+
+            FlowLayoutPanel.Controls.Add(ctrlBankAccount);
+        }
+
         private async void FrmBankAccount_Shown(object sender, System.EventArgs e)
         {
             SetSpinnerSpinning(true);
@@ -85,27 +106,6 @@ namespace PFMS.Views
             }
 
             SetSpinnerSpinning(false);
-        }
-
-        private void NewBankAccount_Click(object sender, System.EventArgs e)
-        {
-            var ctrlBankAccount = new CtrlBankAccountItem(
-                StyleManager,
-                _bankAccountTypes,
-                _currencies,
-                new BankAccount(_authenticationService.LoggedInUser.Id, string.Empty, string.Empty)
-                {
-                    BankAccountType = BankAccountType.SavingsAccount,
-                    ISOCurrencyCode = _authenticationService.LoggedInUser.DefaultISOCurrencyCode
-                })
-            {
-                EditMode = true
-            };
-
-            ctrlBankAccount.Saved += CtrlBankAccount_Saved;
-            ctrlBankAccount.Deleted += CtrlBankAccount_Deleted;
-
-            FlowLayoutPanel.Controls.Add(ctrlBankAccount);
         }
 
         private async void CtrlBankAccount_Deleted(CtrlBankAccountItem ctrlBankAccountItem)

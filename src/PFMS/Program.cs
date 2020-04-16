@@ -53,16 +53,13 @@ namespace PFMS
                 {
                     options.UseSqlServer(
                         _configuration.GetConnectionString("DefaultConnection"),
-                        sqlServerOptionsAction: sqlOptions =>
-                        {
-                            sqlOptions.MigrationsAssembly(assemblyName);
-                        });
+                        sqlServerOptionsAction: sqlOptions => sqlOptions.MigrationsAssembly(assemblyName));
                 })
                 .Configure<StyleConfiguration>(_configuration.GetSection("Style"));
         }
 
         [STAThread]
-        static void Main()
+        public static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

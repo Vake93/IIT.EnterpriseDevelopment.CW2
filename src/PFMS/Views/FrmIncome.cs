@@ -46,13 +46,6 @@ namespace PFMS.Views
             BindMonths();
         }
 
-        private void SetSpinnerSpinning(bool spinning)
-        {
-            Spinner.Spinning = spinning;
-            Spinner.Visible = spinning;
-            Spinner.BringToFront();
-        }
-
         private void BindMonths()
         {
             var currentMonth = DateTime.Now.Month - 1;
@@ -81,12 +74,6 @@ namespace PFMS.Views
             CmbYear.ValueMember = "Key";
 
             CmbYear.SelectedIndex = 20;
-        }
-
-        private async void FrmIncome_Shown(object sender, EventArgs e)
-        {
-            await LoadData();
-            initialLoaded = true;
         }
 
         private async Task LoadData()
@@ -131,6 +118,13 @@ namespace PFMS.Views
             SetSpinnerSpinning(false);
         }
 
+        private void SetSpinnerSpinning(bool spinning)
+        {
+            Spinner.Spinning = spinning;
+            Spinner.Visible = spinning;
+            Spinner.BringToFront();
+        }
+
         private void NewIncome_Click(object sender, EventArgs e)
         {
             var currencyCode = _authenticationService.LoggedInUser.DefaultISOCurrencyCode;
@@ -156,6 +150,12 @@ namespace PFMS.Views
             ctrlIncomeItem.Saved += CtrlIncomeItem_Saved;
             ctrlIncomeItem.Deleted += CtrlIncomeItem_Deleted;
             IncomeLayoutPanel.Controls.Add(ctrlIncomeItem);
+        }
+
+        private async void FrmIncome_Shown(object sender, EventArgs e)
+        {
+            await LoadData();
+            initialLoaded = true;
         }
 
         private async void CtrlIncomeItem_Deleted(CtrlIncomeItem ctrlIncomeItem)

@@ -39,37 +39,6 @@ namespace PFMS.Views
             Tabs.SelectedIndex = 0;
         }
 
-        private async void FrmManageIncomeExpenseSources_Shown(object sender, EventArgs e)
-        {
-            SetSpinnerSpinning(true);
-
-            var incomeSources = await _incomeSourceRepository.FindAsync(
-                i => i.UserId == _authenticationService.LoggedInUser.Id && !i.Deleted);
-
-            var expenseSources = await _expenseSourceRepository.FindAsync(
-                i => i.UserId == _authenticationService.LoggedInUser.Id && !i.Deleted);
-
-            foreach (var incomeSource in incomeSources)
-            {
-                var ctrlSourceItem = new CtrlSourceItem(StyleManager, incomeSource);
-
-                IncomeLayoutPanel.Controls.Add(ctrlSourceItem);
-                ctrlSourceItem.Deleted += CtrlSourceItem_Deleted;
-                ctrlSourceItem.Saved += CtrlSourceItem_Saved;
-            }
-
-            foreach (var expenseSource in expenseSources)
-            {
-                var ctrlSourceItem = new CtrlSourceItem(StyleManager, expenseSource);
-
-                ExpenseLayoutPanel.Controls.Add(ctrlSourceItem);
-                ctrlSourceItem.Deleted += CtrlSourceItem_Deleted;
-                ctrlSourceItem.Saved += CtrlSourceItem_Saved;
-            }
-
-            SetSpinnerSpinning(false);
-        }
-
         private void SetSpinnerSpinning(bool spinning)
         {
             Tabs.Enabled = !spinning;
@@ -185,5 +154,37 @@ namespace PFMS.Views
 
             SetSpinnerSpinning(false);
         }
+
+        private async void FrmManageIncomeExpenseSources_Shown(object sender, EventArgs e)
+        {
+            SetSpinnerSpinning(true);
+
+            var incomeSources = await _incomeSourceRepository.FindAsync(
+                i => i.UserId == _authenticationService.LoggedInUser.Id && !i.Deleted);
+
+            var expenseSources = await _expenseSourceRepository.FindAsync(
+                i => i.UserId == _authenticationService.LoggedInUser.Id && !i.Deleted);
+
+            foreach (var incomeSource in incomeSources)
+            {
+                var ctrlSourceItem = new CtrlSourceItem(StyleManager, incomeSource);
+
+                IncomeLayoutPanel.Controls.Add(ctrlSourceItem);
+                ctrlSourceItem.Deleted += CtrlSourceItem_Deleted;
+                ctrlSourceItem.Saved += CtrlSourceItem_Saved;
+            }
+
+            foreach (var expenseSource in expenseSources)
+            {
+                var ctrlSourceItem = new CtrlSourceItem(StyleManager, expenseSource);
+
+                ExpenseLayoutPanel.Controls.Add(ctrlSourceItem);
+                ctrlSourceItem.Deleted += CtrlSourceItem_Deleted;
+                ctrlSourceItem.Saved += CtrlSourceItem_Saved;
+            }
+
+            SetSpinnerSpinning(false);
+        }
+
     }
 }

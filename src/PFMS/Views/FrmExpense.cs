@@ -83,12 +83,6 @@ namespace PFMS.Views
             CmbYear.SelectedIndex = 20;
         }
 
-        private async void FrmExpense_Shown(object sender, EventArgs e)
-        {
-            await LoadData();
-            initialLoaded = true;
-        }
-
         private async Task LoadData()
         {
             SetSpinnerSpinning(true);
@@ -156,6 +150,12 @@ namespace PFMS.Views
             ctrlExpenseItem.Saved += CtrlExpenseItem_Saved;
             ctrlExpenseItem.Deleted += CtrlExpenseItem_Deleted;
             ExpnseLayoutPanel.Controls.Add(ctrlExpenseItem);
+        }
+
+        private async void FrmExpense_Shown(object sender, EventArgs e)
+        {
+            await LoadData();
+            initialLoaded = true;
         }
 
         private async void CtrlExpenseItem_Deleted(CtrlExpenseItem ctrlExpenseItem)

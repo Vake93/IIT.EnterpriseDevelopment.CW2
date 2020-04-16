@@ -29,6 +29,21 @@ namespace PFMS.Views
             StyleManager = _styleConfiguration.Build(this);
         }
 
+        private bool AuthenticateUser()
+        {
+            if (_authenticationService.LoggedInUser is null)
+            {
+                var result = _viewActivatorService.ShowDialog<FrmLogin>(this);
+
+                if (result == DialogResult.Abort)
+                {
+                    _viewActivatorService.ShowDialog<FrmRegister>(this);
+                }
+            }
+
+            return _authenticationService.LoggedInUser is User;
+        }
+
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms.Count == 0)
@@ -43,21 +58,6 @@ namespace PFMS.Views
             {
                 Close();
             }
-        }
-
-        private bool AuthenticateUser()
-        {
-            if (_authenticationService.LoggedInUser is null)
-            {
-                var result = _viewActivatorService.ShowDialog<FrmLogin>(this);
-
-                if (result == DialogResult.Abort)
-                {
-                    _viewActivatorService.ShowDialog<FrmRegister>(this);
-                }
-            }
-
-            return _authenticationService.LoggedInUser is User;
         }
 
         private void ManageSources_Click(object sender, EventArgs e)
