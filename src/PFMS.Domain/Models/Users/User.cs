@@ -1,5 +1,6 @@
 ﻿using PFMS.Domain.Models.BankAccounts;
 using PFMS.Domain.Models.Currencies;
+using PFMS.Domain.Models.Events;
 using PFMS.Domain.Models.ExpenseSources;
 using PFMS.Domain.Models.IncomeSources;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace PFMS.Domain.Models.Users
         private readonly List<BankAccount> _bankAccounts;
         private readonly List<IncomeSource> _incomeSources;
         private readonly List<ExpenseSource> _expenseSources;
+        private readonly List<Event> _events;
 
         public User(string firstName, string lastName, string userName)
             : this()
@@ -29,6 +31,7 @@ namespace PFMS.Domain.Models.Users
             _bankAccounts = new List<BankAccount>();
             _incomeSources = new List<IncomeSource>();
             _expenseSources = new List<ExpenseSource>();
+            _events = new List<Event>();
         }
 
         public string FirstName { get; set; }
@@ -52,5 +55,7 @@ namespace PFMS.Domain.Models.Users
         public IReadOnlyList<IncomeSource> IncomeSources => _incomeSources;
 
         public IReadOnlyList<ExpenseSource> ExpenseSources => _expenseSources;
+
+        public IReadOnlyList<Event> Events => _events;
     }
 }
