@@ -87,6 +87,16 @@ namespace PFMS.Views.Common
             }
         }
 
+        private void UpdateViewData()
+        {
+            TitleText.Text = Expense.Title;
+            ExpenseAmountText.Text = Expense.Amount.ToString();
+            CmbExpenseSource.SelectedItem = _expenseSources.FirstOrDefault(i => i.Id == Expense.ExpenseSourceId);
+            ExpenseDate.Value = Expense.Date;
+
+            Amount.Text = $"Amount ({Expense.ISOCurrencyCode}):";
+        }
+
         private void BtnEditSave_Click(object sender, EventArgs e)
         {
             if (EditMode)
@@ -162,16 +172,6 @@ namespace PFMS.Views.Common
                     Deleted?.Invoke(this);
                 }
             }
-        }
-
-        private void UpdateViewData()
-        {
-            TitleText.Text = Expense.Title;
-            ExpenseAmountText.Text = Expense.Amount.ToString();
-            CmbExpenseSource.SelectedItem = _expenseSources.FirstOrDefault(i => i.Id == Expense.ExpenseSourceId);
-            ExpenseDate.Value = Expense.Date;
-
-            Amount.Text = $"Amount ({Expense.ISOCurrencyCode}):";
         }
     }
 }

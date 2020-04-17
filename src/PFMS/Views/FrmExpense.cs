@@ -22,7 +22,7 @@ namespace PFMS.Views
         private readonly IExpenseRepository _expenseRepository;
 
         private ExpenseSource[] expenseSources;
-        private bool initialLoaded = false;
+        private bool initialLoaded;
 
         public FrmExpense(
             IExpenseRepository expenseRepository,

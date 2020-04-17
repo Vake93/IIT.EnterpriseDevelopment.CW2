@@ -37,7 +37,7 @@
             this.Calendar = new MetroFramework.Controls.MetroTile();
             this.Reports = new MetroFramework.Controls.MetroTile();
             this.Status = new MetroFramework.Controls.MetroPanel();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.EventsPanel = new MetroFramework.Controls.MetroPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.StatusPanel = new MetroFramework.Controls.MetroPanel();
             this.TotalSavingsText = new MetroFramework.Controls.MetroLabel();
@@ -51,7 +51,7 @@
             this.Tiles.SuspendLayout();
             this.FlowLayoutPanel.SuspendLayout();
             this.Status.SuspendLayout();
-            this.metroPanel1.SuspendLayout();
+            this.EventsPanel.SuspendLayout();
             this.StatusPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -195,7 +195,7 @@
             // 
             this.Status.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Status.Controls.Add(this.metroPanel1);
+            this.Status.Controls.Add(this.EventsPanel);
             this.Status.Controls.Add(this.StatusPanel);
             this.Status.Controls.Add(this.StatusSpinner);
             this.Status.HorizontalScrollbarBarColor = true;
@@ -209,19 +209,20 @@
             this.Status.VerticalScrollbarHighlightOnWheel = false;
             this.Status.VerticalScrollbarSize = 10;
             // 
-            // metroPanel1
+            // EventsPanel
             // 
-            this.metroPanel1.Controls.Add(this.metroLabel1);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(6, 134);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(298, 306);
-            this.metroPanel1.TabIndex = 11;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.EventsPanel.Controls.Add(this.metroLabel1);
+            this.EventsPanel.HorizontalScrollbarBarColor = true;
+            this.EventsPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.EventsPanel.HorizontalScrollbarSize = 10;
+            this.EventsPanel.Location = new System.Drawing.Point(6, 134);
+            this.EventsPanel.Name = "EventsPanel";
+            this.EventsPanel.Size = new System.Drawing.Size(298, 306);
+            this.EventsPanel.TabIndex = 11;
+            this.EventsPanel.VerticalScrollbarBarColor = true;
+            this.EventsPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.EventsPanel.VerticalScrollbarSize = 10;
+            this.EventsPanel.Visible = false;
             // 
             // metroLabel1
             // 
@@ -353,8 +354,8 @@
             this.Tiles.ResumeLayout(false);
             this.FlowLayoutPanel.ResumeLayout(false);
             this.Status.ResumeLayout(false);
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
+            this.EventsPanel.ResumeLayout(false);
+            this.EventsPanel.PerformLayout();
             this.StatusPanel.ResumeLayout(false);
             this.StatusPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -379,7 +380,7 @@
         private MetroFramework.Controls.MetroLabel TotalSavings;
         private MetroFramework.Controls.MetroProgressSpinner StatusSpinner;
         private MetroFramework.Controls.MetroPanel StatusPanel;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel EventsPanel;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTile Calendar;
         private MetroFramework.Controls.MetroTile Reports;

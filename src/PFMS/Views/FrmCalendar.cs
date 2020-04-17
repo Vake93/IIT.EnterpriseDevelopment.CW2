@@ -1,12 +1,12 @@
 ﻿using MetroFramework.Forms;
 using Microsoft.Extensions.Options;
 using PFMS.Configurations;
+using PFMS.Domain.Models.Events;
+using PFMS.Domain.Repositories.Events;
 using PFMS.Services.Authentication;
 using PFMS.Views.Common;
 using System;
-using System.Globalization;
-using System.Linq;
-using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace PFMS.Views
 {
@@ -14,50 +14,50 @@ namespace PFMS.Views
     {
         private readonly IAuthenticationService _authenticationService;
         private readonly StyleConfiguration _styleConfiguration;
+        private readonly IEventRepository _eventRepository;
+        private bool initialLoaded;
 
         public FrmCalendar(
+            IEventRepository eventRepository,
             IAuthenticationService authenticationService,
             IOptions<StyleConfiguration> styleConfigurationOptions)
         {
+            _eventRepository = eventRepository;
             _authenticationService = authenticationService;
             _styleConfiguration = styleConfigurationOptions.Value;
 
             InitializeComponent();
 
+            Spinner.Top = Height / 2 - Spinner.Height / 2;
+            Spinner.Left = Width / 2 - Spinner.Width / 2;
+
             StyleManager = _styleConfiguration.Build(this);
-
-            BindYears();
-            BindMonths();
         }
 
-        private void BindMonths()
+        private async Task LoadData()
         {
-            var currentMonth = DateTime.Now.Month - 1;
+            SetSpinnerSpinning(true);
 
-            CmbMonth.DataSource = new BindingSource(
-                DateTimeFormatInfo.CurrentInfo.MonthNames
-                    .Where(m => m != string.Empty)
-                    .Select((m, i) => new { Name = m, Index = i })
-                    .ToDictionary(x => x.Index, x => x.Name), null);
+            EventLayoutPanel.Controls.Clear();
 
-            CmbMonth.DisplayMember = "Value";
-            CmbMonth.ValueMember = "Key";
+            var events = await _eventRepository.FindAsync(
+                    e => e.UserId == _authenticationService.LoggedInUser.Id &&
+                         e.DateTime.Date == CmbDate.Value.Date &&
+                         !e.Deleted);
 
-            CmbMonth.SelectedIndex = currentMonth;
-        }
+            foreach (var @event in events)
+            {
+                var ctrlEventItem = new CtrlEventItem(
+                    StyleManager,
+                    @event);
 
-        private void BindYears()
-        {
-            var currentYear = DateTime.Now.Year;
+                ctrlEventItem.Saved += CtrlEventItem_Saved;
+                ctrlEventItem.Deleted += CtrlEventItem_Deleted;
 
-            CmbYear.DataSource = new BindingSource(
-                Enumerable.Range(currentYear - 20, currentYear + 20)
-                    .ToDictionary(x => x, x => x), null);
+                EventLayoutPanel.Controls.Add(ctrlEventItem);
+            }
 
-            CmbYear.DisplayMember = "Value";
-            CmbYear.ValueMember = "Key";
-
-            CmbYear.SelectedIndex = 20;
+            SetSpinnerSpinning(false);
         }
 
         private void SetSpinnerSpinning(bool spinning)
@@ -69,9 +69,81 @@ namespace PFMS.Views
 
         private void NewEvent_Click(object sender, EventArgs e)
         {
-            var ctrlEventItem = new CtrlEventItem(StyleManager);
+            var eventDateTime = new DateTime(
+                CmbDate.Value.Year,
+                CmbDate.Value.Month,
+                CmbDate.Value.Day,
+                DateTime.Now.Hour,
+                DateTime.Now.Minute,
+                0);
+
+            var ctrlEventItem = new CtrlEventItem(
+                StyleManager,
+                new Event(_authenticationService.LoggedInUser.Id, string.Empty, eventDateTime)
+                {
+                    Duration = 60
+                })
+            {
+                EditMode = true
+            };
+
+            ctrlEventItem.Saved += CtrlEventItem_Saved;
+            ctrlEventItem.Deleted += CtrlEventItem_Deleted;
 
             EventLayoutPanel.Controls.Add(ctrlEventItem);
+        }
+
+        private async void CmbDate_ValueChanged(object sender, EventArgs e)
+        {
+            if (initialLoaded)
+                await LoadData();
+        }
+
+        private async void FrmCalendar_Shown(object sender, EventArgs e)
+        {
+            await LoadData();
+            initialLoaded = true;
+        }
+
+        private async void CtrlEventItem_Deleted(CtrlEventItem ctrlEventItem)
+        {
+            SetSpinnerSpinning(true);
+
+            ctrlEventItem.Saved -= CtrlEventItem_Saved;
+            ctrlEventItem.Deleted -= CtrlEventItem_Deleted;
+
+            EventLayoutPanel.Controls.Remove(ctrlEventItem);
+
+            var delete = await _eventRepository.AnyAsync(e => e.Id == ctrlEventItem.Event.Id);
+
+            if (delete)
+            {
+                ctrlEventItem.Event.Delete();
+                _eventRepository.Update(ctrlEventItem.Event);
+                await _eventRepository.SaveChangesAsync();
+            }
+
+            SetSpinnerSpinning(false);
+        }
+
+        private async void CtrlEventItem_Saved(CtrlEventItem ctrlEventItem)
+        {
+            SetSpinnerSpinning(true);
+
+            var update = await _eventRepository.AnyAsync(e => e.Id == ctrlEventItem.Event.Id);
+
+            if (update)
+            {
+                _eventRepository.Update(ctrlEventItem.Event);
+            }
+            else
+            {
+                _eventRepository.Add(ctrlEventItem.Event);
+            }
+
+            await _eventRepository.SaveChangesAsync();
+
+            SetSpinnerSpinning(false);
         }
     }
 }

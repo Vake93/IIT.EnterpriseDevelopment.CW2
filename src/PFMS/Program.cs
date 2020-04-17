@@ -53,7 +53,12 @@ namespace PFMS
                 {
                     options.UseSqlServer(
                         _configuration.GetConnectionString("DefaultConnection"),
-                        sqlServerOptionsAction: sqlOptions => sqlOptions.MigrationsAssembly(assemblyName));
+                        sqlServerOptionsAction: sqlOptions =>
+                        {
+                            sqlOptions.MigrationsAssembly(assemblyName);
+                            sqlOptions.EnableRetryOnFailure(2);
+                        });
+
                 })
                 .Configure<StyleConfiguration>(_configuration.GetSection("Style"));
         }

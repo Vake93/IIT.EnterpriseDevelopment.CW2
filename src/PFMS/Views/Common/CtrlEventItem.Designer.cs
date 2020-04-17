@@ -242,6 +242,7 @@
             this.BtnEditSave.TabIndex = 28;
             this.BtnEditSave.Text = "Edit";
             this.BtnEditSave.UseSelectable = true;
+            this.BtnEditSave.Click += new System.EventHandler(this.BtnEditSave_Click);
             // 
             // BtnDeleteCancel
             // 
@@ -252,6 +253,7 @@
             this.BtnDeleteCancel.TabIndex = 27;
             this.BtnDeleteCancel.Text = "Delete";
             this.BtnDeleteCancel.UseSelectable = true;
+            this.BtnDeleteCancel.Click += new System.EventHandler(this.BtnDeleteCancel_Click);
             // 
             // CtrlEventItem
             // 

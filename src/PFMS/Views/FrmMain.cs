@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Options;
 using PFMS.Configurations;
 using PFMS.Domain.Models.Users;
+using PFMS.Domain.Queries.Events;
 using PFMS.Services.Authentication;
 using PFMS.Services.Reports;
 using PFMS.Services.ViewActivator;
@@ -16,13 +17,16 @@ namespace PFMS.Views
         private readonly StyleConfiguration _styleConfiguration;
         private readonly IViewActivatorService _viewActivatorService;
         private readonly IReportService _reportService;
+        private readonly IEventQuery _eventQuery;
 
         public FrmMain(
+            IEventQuery eventQuery,
             IReportService reportService,
             IViewActivatorService viewActivatorService,
             IAuthenticationService authenticationService,
             IOptions<StyleConfiguration> styleConfigurationOption)
         {
+            _eventQuery = eventQuery;
             _reportService = reportService;
             _viewActivatorService = viewActivatorService;
             _authenticationService = authenticationService;
@@ -64,6 +68,7 @@ namespace PFMS.Views
             }
 
             StatusPanel.Visible = false;
+            EventsPanel.Visible = false;
             StatusSpinner.Visible = true;
             StatusSpinner.Spinning = true;
 
@@ -72,11 +77,22 @@ namespace PFMS.Views
                 date.Year,
                 date.Month);
 
+            var events = await _eventQuery.FindAsync(
+                i => i.UserId == _authenticationService.LoggedInUser.Id &&
+                     i.DateTime.Date >= date.Date &&
+                     !i.Deleted,
+                i => i,
+                skip: 0,
+                limit: 10,
+                orderBy: "DateTime",
+                orderDirection: "asc");
+
             TotalIncomeText.Text = $"{summery.ISOCurrencyCode} {summery.TotalIncome}";
             TotalExpenseText.Text = $"{summery.ISOCurrencyCode} {summery.TotalExpense}";
             TotalSavingsText.Text = $"{summery.ISOCurrencyCode} {summery.TotalIncome}";
 
             StatusPanel.Visible = true;
+            EventsPanel.Visible = true;
             StatusSpinner.Visible = false;
             StatusSpinner.Spinning = false;
         }
