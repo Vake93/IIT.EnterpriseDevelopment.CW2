@@ -196,6 +196,7 @@
             this.Reports.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.Reports.UseSelectable = true;
             this.Reports.UseTileImage = true;
+            this.Reports.Click += new System.EventHandler(this.Reports_Click);
             // 
             // Status
             // 

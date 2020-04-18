@@ -204,6 +204,11 @@ namespace PFMS.Views
             _viewActivatorService.ShowDialog<FrmBankAccount>(this);
         }
 
+        private void Reports_Click(object sender, EventArgs e)
+        {
+            _viewActivatorService.ShowDialog<FrmReport>(this);
+        }
+
         private async void Calendar_Click(object sender, EventArgs e)
         {
             _viewActivatorService.ShowDialog<FrmCalendar>(this);
