@@ -367,6 +367,8 @@
     <Content Include="appsettings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\icons8-financial-growth-analysis-100.png" />
+    <None Include="Resources\icons8-cashbook-100.png" />
     <None Include="Resources\icons8-profit-report-100.png" />
     <None Include="Resources\icons8-calendar-plus-100.png" />
     <None Include="Resources\icons8-merchant-account-100.png" />

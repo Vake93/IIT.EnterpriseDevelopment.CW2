@@ -34,7 +34,23 @@ namespace PFMS.Views
 
             InitializeComponent();
 
+            Spinner.Top = Height / 2 - Spinner.Height / 2;
+            Spinner.Left = Width / 2 - Spinner.Width / 2;
+
             StyleManager = _styleConfiguration.Build(this);
+        }
+
+        private void SetSpinnerSpinning(bool spinning)
+        {
+            Spinner.Spinning = spinning;
+            Spinner.Visible = spinning;
+            Tiles.Visible = !spinning;
+
+            CurrencyConverterPanel.Visible = !spinning;
+            StatusPanel.Visible = !spinning;
+            EventsPanel.Visible = !spinning;
+
+            Spinner.BringToFront();
         }
 
         private bool AuthenticateUser()
@@ -62,15 +78,12 @@ namespace PFMS.Views
 
         private async void FrmMain_Shown(object sender, EventArgs e)
         {
+            SetSpinnerSpinning(true);
+
             if (!AuthenticateUser())
             {
                 Close();
             }
-
-            StatusPanel.Visible = false;
-            EventsPanel.Visible = false;
-            StatusSpinner.Visible = true;
-            StatusSpinner.Spinning = true;
 
             var date = DateTime.Now;
             var summery = await _reportService.GetMonthlySummeryReportAsync(
@@ -91,10 +104,7 @@ namespace PFMS.Views
             TotalExpenseText.Text = $"{summery.ISOCurrencyCode} {summery.TotalExpense}";
             TotalSavingsText.Text = $"{summery.ISOCurrencyCode} {summery.TotalIncome}";
 
-            StatusPanel.Visible = true;
-            EventsPanel.Visible = true;
-            StatusSpinner.Visible = false;
-            StatusSpinner.Spinning = false;
+            SetSpinnerSpinning(false);
         }
 
         private void ManageSources_Click(object sender, EventArgs e)
