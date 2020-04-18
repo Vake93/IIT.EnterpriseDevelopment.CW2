@@ -271,6 +271,9 @@
     <Compile Include="Seeders\SeedOchestrator.cs" />
     <Compile Include="Services\Authentication\AuthenticationService.cs" />
     <Compile Include="Services\Authentication\IAuthenticationService.cs" />
+    <Compile Include="Services\ExchangeRates\ExchangeRate.cs" />
+    <Compile Include="Services\ExchangeRates\ExchangeRateService.cs" />
+    <Compile Include="Services\ExchangeRates\IExchangeRateService.cs" />
     <Compile Include="Services\Reports\IReportService.cs" />
     <Compile Include="Services\Reports\MonthlySummeryReport.cs" />
     <Compile Include="Services\Reports\ReportService.cs" />
@@ -306,6 +309,12 @@
     </Compile>
     <Compile Include="Views\Common\CtrlSourceItem.Designer.cs">
       <DependentUpon>CtrlSourceItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Common\CtrlUpcomingEventItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Common\CtrlUpcomingEventItem.Designer.cs">
+      <DependentUpon>CtrlUpcomingEventItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmBankAccount.cs">
       <SubType>Form</SubType>
@@ -389,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Common\CtrlSourceItem.resx">
       <DependentUpon>CtrlSourceItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Common\CtrlUpcomingEventItem.resx">
+      <DependentUpon>CtrlUpcomingEventItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmBankAccount.resx">
       <DependentUpon>FrmBankAccount.cs</DependentUpon>

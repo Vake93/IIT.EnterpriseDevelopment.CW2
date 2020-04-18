@@ -38,8 +38,13 @@
             this.Reports = new MetroFramework.Controls.MetroTile();
             this.Status = new MetroFramework.Controls.MetroPanel();
             this.CurrencyConverterPanel = new MetroFramework.Controls.MetroPanel();
+            this.TxtToAmount = new MetroFramework.Controls.MetroTextBox();
+            this.CmbToAmount = new MetroFramework.Controls.MetroComboBox();
+            this.TxtFromAmount = new MetroFramework.Controls.MetroTextBox();
+            this.CmbFromAmount = new MetroFramework.Controls.MetroComboBox();
             this.CurrencyConverter = new MetroFramework.Controls.MetroLabel();
             this.EventsPanel = new MetroFramework.Controls.MetroPanel();
+            this.EventsLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.UpcomingEvents = new MetroFramework.Controls.MetroLabel();
             this.StatusPanel = new MetroFramework.Controls.MetroPanel();
             this.TotalSavingsText = new MetroFramework.Controls.MetroLabel();
@@ -50,10 +55,6 @@
             this.TotalExpense = new MetroFramework.Controls.MetroLabel();
             this.TotalExpenseText = new MetroFramework.Controls.MetroLabel();
             this.Spinner = new MetroFramework.Controls.MetroProgressSpinner();
-            this.CmbFromAmount = new MetroFramework.Controls.MetroComboBox();
-            this.TxtFromAmount = new MetroFramework.Controls.MetroTextBox();
-            this.CmbToAmount = new MetroFramework.Controls.MetroComboBox();
-            this.TxtToAmount = new MetroFramework.Controls.MetroTextBox();
             this.Tiles.SuspendLayout();
             this.FlowLayoutPanel.SuspendLayout();
             this.Status.SuspendLayout();
@@ -234,201 +235,6 @@
             this.CurrencyConverterPanel.VerticalScrollbarHighlightOnWheel = false;
             this.CurrencyConverterPanel.VerticalScrollbarSize = 10;
             // 
-            // CurrencyConverter
-            // 
-            this.CurrencyConverter.AutoSize = true;
-            this.CurrencyConverter.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.CurrencyConverter.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.CurrencyConverter.Location = new System.Drawing.Point(5, 5);
-            this.CurrencyConverter.Name = "CurrencyConverter";
-            this.CurrencyConverter.Size = new System.Drawing.Size(163, 25);
-            this.CurrencyConverter.TabIndex = 9;
-            this.CurrencyConverter.Text = "Currency Converter";
-            // 
-            // EventsPanel
-            // 
-            this.EventsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.EventsPanel.Controls.Add(this.UpcomingEvents);
-            this.EventsPanel.HorizontalScrollbarBarColor = true;
-            this.EventsPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.EventsPanel.HorizontalScrollbarSize = 10;
-            this.EventsPanel.Location = new System.Drawing.Point(3, 255);
-            this.EventsPanel.Name = "EventsPanel";
-            this.EventsPanel.Size = new System.Drawing.Size(301, 256);
-            this.EventsPanel.TabIndex = 11;
-            this.EventsPanel.VerticalScrollbarBarColor = true;
-            this.EventsPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.EventsPanel.VerticalScrollbarSize = 10;
-            // 
-            // UpcomingEvents
-            // 
-            this.UpcomingEvents.AutoSize = true;
-            this.UpcomingEvents.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.UpcomingEvents.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.UpcomingEvents.Location = new System.Drawing.Point(5, 5);
-            this.UpcomingEvents.Name = "UpcomingEvents";
-            this.UpcomingEvents.Size = new System.Drawing.Size(151, 25);
-            this.UpcomingEvents.TabIndex = 9;
-            this.UpcomingEvents.Text = "Upcoming Events";
-            // 
-            // StatusPanel
-            // 
-            this.StatusPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.StatusPanel.Controls.Add(this.TotalSavingsText);
-            this.StatusPanel.Controls.Add(this.TotalIncome);
-            this.StatusPanel.Controls.Add(this.MonthlySummary);
-            this.StatusPanel.Controls.Add(this.TotalSavings);
-            this.StatusPanel.Controls.Add(this.TotalIncomeText);
-            this.StatusPanel.Controls.Add(this.TotalExpense);
-            this.StatusPanel.Controls.Add(this.TotalExpenseText);
-            this.StatusPanel.HorizontalScrollbarBarColor = true;
-            this.StatusPanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.StatusPanel.HorizontalScrollbarSize = 10;
-            this.StatusPanel.Location = new System.Drawing.Point(3, 134);
-            this.StatusPanel.Name = "StatusPanel";
-            this.StatusPanel.Size = new System.Drawing.Size(301, 115);
-            this.StatusPanel.TabIndex = 10;
-            this.StatusPanel.VerticalScrollbarBarColor = true;
-            this.StatusPanel.VerticalScrollbarHighlightOnWheel = false;
-            this.StatusPanel.VerticalScrollbarSize = 10;
-            // 
-            // TotalSavingsText
-            // 
-            this.TotalSavingsText.Location = new System.Drawing.Point(145, 80);
-            this.TotalSavingsText.Name = "TotalSavingsText";
-            this.TotalSavingsText.Size = new System.Drawing.Size(135, 19);
-            this.TotalSavingsText.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TotalSavingsText.TabIndex = 8;
-            this.TotalSavingsText.Text = "## #,###,###.##";
-            this.TotalSavingsText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TotalSavingsText.UseStyleColors = true;
-            // 
-            // TotalIncome
-            // 
-            this.TotalIncome.AutoSize = true;
-            this.TotalIncome.Location = new System.Drawing.Point(5, 40);
-            this.TotalIncome.Name = "TotalIncome";
-            this.TotalIncome.Size = new System.Drawing.Size(83, 19);
-            this.TotalIncome.TabIndex = 3;
-            this.TotalIncome.Text = "Total Income";
-            // 
-            // MonthlySummary
-            // 
-            this.MonthlySummary.AutoSize = true;
-            this.MonthlySummary.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.MonthlySummary.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.MonthlySummary.Location = new System.Drawing.Point(5, 5);
-            this.MonthlySummary.Name = "MonthlySummary";
-            this.MonthlySummary.Size = new System.Drawing.Size(159, 25);
-            this.MonthlySummary.TabIndex = 2;
-            this.MonthlySummary.Text = "Monthly Summary";
-            // 
-            // TotalSavings
-            // 
-            this.TotalSavings.AutoSize = true;
-            this.TotalSavings.Location = new System.Drawing.Point(5, 80);
-            this.TotalSavings.Name = "TotalSavings";
-            this.TotalSavings.Size = new System.Drawing.Size(83, 19);
-            this.TotalSavings.TabIndex = 7;
-            this.TotalSavings.Text = "Total Savings";
-            // 
-            // TotalIncomeText
-            // 
-            this.TotalIncomeText.Location = new System.Drawing.Point(145, 40);
-            this.TotalIncomeText.Name = "TotalIncomeText";
-            this.TotalIncomeText.Size = new System.Drawing.Size(135, 19);
-            this.TotalIncomeText.Style = MetroFramework.MetroColorStyle.Green;
-            this.TotalIncomeText.TabIndex = 4;
-            this.TotalIncomeText.Text = "## #,###,###.##";
-            this.TotalIncomeText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TotalIncomeText.UseStyleColors = true;
-            // 
-            // TotalExpense
-            // 
-            this.TotalExpense.AutoSize = true;
-            this.TotalExpense.Location = new System.Drawing.Point(5, 61);
-            this.TotalExpense.Name = "TotalExpense";
-            this.TotalExpense.Size = new System.Drawing.Size(87, 19);
-            this.TotalExpense.TabIndex = 5;
-            this.TotalExpense.Text = "Total Expense";
-            // 
-            // TotalExpenseText
-            // 
-            this.TotalExpenseText.Location = new System.Drawing.Point(145, 61);
-            this.TotalExpenseText.Name = "TotalExpenseText";
-            this.TotalExpenseText.Size = new System.Drawing.Size(135, 19);
-            this.TotalExpenseText.Style = MetroFramework.MetroColorStyle.Orange;
-            this.TotalExpenseText.TabIndex = 6;
-            this.TotalExpenseText.Text = "## #,###,###.##";
-            this.TotalExpenseText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TotalExpenseText.UseStyleColors = true;
-            // 
-            // Spinner
-            // 
-            this.Spinner.Location = new System.Drawing.Point(923, -8);
-            this.Spinner.Maximum = 100;
-            this.Spinner.Name = "Spinner";
-            this.Spinner.Size = new System.Drawing.Size(65, 65);
-            this.Spinner.Spinning = false;
-            this.Spinner.TabIndex = 9;
-            this.Spinner.UseSelectable = true;
-            this.Spinner.Value = 75;
-            this.Spinner.Visible = false;
-            // 
-            // CmbFromAmount
-            // 
-            this.CmbFromAmount.FormattingEnabled = true;
-            this.CmbFromAmount.ItemHeight = 23;
-            this.CmbFromAmount.Location = new System.Drawing.Point(5, 33);
-            this.CmbFromAmount.Name = "CmbFromAmount";
-            this.CmbFromAmount.Size = new System.Drawing.Size(87, 29);
-            this.CmbFromAmount.TabIndex = 10;
-            this.CmbFromAmount.UseSelectable = true;
-            // 
-            // TxtFromAmount
-            // 
-            // 
-            // 
-            // 
-            this.TxtFromAmount.CustomButton.Image = null;
-            this.TxtFromAmount.CustomButton.Location = new System.Drawing.Point(167, 1);
-            this.TxtFromAmount.CustomButton.Name = "";
-            this.TxtFromAmount.CustomButton.Size = new System.Drawing.Size(27, 27);
-            this.TxtFromAmount.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.TxtFromAmount.CustomButton.TabIndex = 1;
-            this.TxtFromAmount.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.TxtFromAmount.CustomButton.UseSelectable = true;
-            this.TxtFromAmount.CustomButton.Visible = false;
-            this.TxtFromAmount.FontSize = MetroFramework.MetroTextBoxSize.Tall;
-            this.TxtFromAmount.Lines = new string[0];
-            this.TxtFromAmount.Location = new System.Drawing.Point(98, 33);
-            this.TxtFromAmount.MaxLength = 32767;
-            this.TxtFromAmount.Name = "TxtFromAmount";
-            this.TxtFromAmount.PasswordChar = '\0';
-            this.TxtFromAmount.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.TxtFromAmount.SelectedText = "";
-            this.TxtFromAmount.SelectionLength = 0;
-            this.TxtFromAmount.SelectionStart = 0;
-            this.TxtFromAmount.ShortcutsEnabled = true;
-            this.TxtFromAmount.Size = new System.Drawing.Size(195, 29);
-            this.TxtFromAmount.TabIndex = 11;
-            this.TxtFromAmount.UseSelectable = true;
-            this.TxtFromAmount.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.TxtFromAmount.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // CmbToAmount
-            // 
-            this.CmbToAmount.FormattingEnabled = true;
-            this.CmbToAmount.ItemHeight = 23;
-            this.CmbToAmount.Location = new System.Drawing.Point(5, 68);
-            this.CmbToAmount.Name = "CmbToAmount";
-            this.CmbToAmount.Size = new System.Drawing.Size(87, 29);
-            this.CmbToAmount.TabIndex = 12;
-            this.CmbToAmount.UseSelectable = true;
-            // 
             // TxtToAmount
             // 
             // 
@@ -457,9 +263,234 @@
             this.TxtToAmount.ShortcutsEnabled = true;
             this.TxtToAmount.Size = new System.Drawing.Size(195, 29);
             this.TxtToAmount.TabIndex = 13;
+            this.TxtToAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.TxtToAmount.UseSelectable = true;
             this.TxtToAmount.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.TxtToAmount.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // CmbToAmount
+            // 
+            this.CmbToAmount.FormattingEnabled = true;
+            this.CmbToAmount.ItemHeight = 23;
+            this.CmbToAmount.Location = new System.Drawing.Point(5, 68);
+            this.CmbToAmount.Name = "CmbToAmount";
+            this.CmbToAmount.Size = new System.Drawing.Size(87, 29);
+            this.CmbToAmount.TabIndex = 12;
+            this.CmbToAmount.UseSelectable = true;
+            this.CmbToAmount.SelectedIndexChanged += new System.EventHandler(this.CmbToAmount_SelectedIndexChanged);
+            // 
+            // TxtFromAmount
+            // 
+            // 
+            // 
+            // 
+            this.TxtFromAmount.CustomButton.Image = null;
+            this.TxtFromAmount.CustomButton.Location = new System.Drawing.Point(167, 1);
+            this.TxtFromAmount.CustomButton.Name = "";
+            this.TxtFromAmount.CustomButton.Size = new System.Drawing.Size(27, 27);
+            this.TxtFromAmount.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TxtFromAmount.CustomButton.TabIndex = 1;
+            this.TxtFromAmount.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.TxtFromAmount.CustomButton.UseSelectable = true;
+            this.TxtFromAmount.CustomButton.Visible = false;
+            this.TxtFromAmount.FontSize = MetroFramework.MetroTextBoxSize.Tall;
+            this.TxtFromAmount.Lines = new string[0];
+            this.TxtFromAmount.Location = new System.Drawing.Point(98, 33);
+            this.TxtFromAmount.MaxLength = 32767;
+            this.TxtFromAmount.Name = "TxtFromAmount";
+            this.TxtFromAmount.PasswordChar = '\0';
+            this.TxtFromAmount.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.TxtFromAmount.SelectedText = "";
+            this.TxtFromAmount.SelectionLength = 0;
+            this.TxtFromAmount.SelectionStart = 0;
+            this.TxtFromAmount.ShortcutsEnabled = true;
+            this.TxtFromAmount.Size = new System.Drawing.Size(195, 29);
+            this.TxtFromAmount.TabIndex = 11;
+            this.TxtFromAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.TxtFromAmount.UseSelectable = true;
+            this.TxtFromAmount.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.TxtFromAmount.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtFromAmount.TextChanged += new System.EventHandler(this.TxtFromAmount_TextChanged);
+            this.TxtFromAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtFromAmount_KeyPress);
+            // 
+            // CmbFromAmount
+            // 
+            this.CmbFromAmount.FormattingEnabled = true;
+            this.CmbFromAmount.ItemHeight = 23;
+            this.CmbFromAmount.Location = new System.Drawing.Point(5, 33);
+            this.CmbFromAmount.Name = "CmbFromAmount";
+            this.CmbFromAmount.Size = new System.Drawing.Size(87, 29);
+            this.CmbFromAmount.TabIndex = 10;
+            this.CmbFromAmount.UseSelectable = true;
+            this.CmbFromAmount.SelectedIndexChanged += new System.EventHandler(this.CmbFromAmount_SelectedIndexChanged);
+            // 
+            // CurrencyConverter
+            // 
+            this.CurrencyConverter.AutoSize = true;
+            this.CurrencyConverter.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.CurrencyConverter.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.CurrencyConverter.Location = new System.Drawing.Point(0, 5);
+            this.CurrencyConverter.Name = "CurrencyConverter";
+            this.CurrencyConverter.Size = new System.Drawing.Size(163, 25);
+            this.CurrencyConverter.TabIndex = 9;
+            this.CurrencyConverter.Text = "Currency Converter";
+            this.CurrencyConverter.UseCustomForeColor = true;
+            // 
+            // EventsPanel
+            // 
+            this.EventsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EventsPanel.Controls.Add(this.EventsLayoutPanel);
+            this.EventsPanel.Controls.Add(this.UpcomingEvents);
+            this.EventsPanel.HorizontalScrollbarBarColor = true;
+            this.EventsPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.EventsPanel.HorizontalScrollbarSize = 10;
+            this.EventsPanel.Location = new System.Drawing.Point(3, 265);
+            this.EventsPanel.Name = "EventsPanel";
+            this.EventsPanel.Size = new System.Drawing.Size(301, 246);
+            this.EventsPanel.TabIndex = 11;
+            this.EventsPanel.VerticalScrollbarBarColor = true;
+            this.EventsPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.EventsPanel.VerticalScrollbarSize = 10;
+            // 
+            // EventsLayoutPanel
+            // 
+            this.EventsLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EventsLayoutPanel.AutoScroll = true;
+            this.EventsLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.EventsLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.EventsLayoutPanel.Location = new System.Drawing.Point(5, 28);
+            this.EventsLayoutPanel.Name = "EventsLayoutPanel";
+            this.EventsLayoutPanel.Size = new System.Drawing.Size(288, 215);
+            this.EventsLayoutPanel.TabIndex = 10;
+            this.EventsLayoutPanel.WrapContents = false;
+            // 
+            // UpcomingEvents
+            // 
+            this.UpcomingEvents.AutoSize = true;
+            this.UpcomingEvents.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.UpcomingEvents.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.UpcomingEvents.Location = new System.Drawing.Point(0, 0);
+            this.UpcomingEvents.Name = "UpcomingEvents";
+            this.UpcomingEvents.Size = new System.Drawing.Size(151, 25);
+            this.UpcomingEvents.TabIndex = 9;
+            this.UpcomingEvents.Text = "Upcoming Events";
+            this.UpcomingEvents.UseCustomForeColor = true;
+            // 
+            // StatusPanel
+            // 
+            this.StatusPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.StatusPanel.Controls.Add(this.TotalSavingsText);
+            this.StatusPanel.Controls.Add(this.TotalIncome);
+            this.StatusPanel.Controls.Add(this.MonthlySummary);
+            this.StatusPanel.Controls.Add(this.TotalSavings);
+            this.StatusPanel.Controls.Add(this.TotalIncomeText);
+            this.StatusPanel.Controls.Add(this.TotalExpense);
+            this.StatusPanel.Controls.Add(this.TotalExpenseText);
+            this.StatusPanel.HorizontalScrollbarBarColor = true;
+            this.StatusPanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.StatusPanel.HorizontalScrollbarSize = 10;
+            this.StatusPanel.Location = new System.Drawing.Point(3, 134);
+            this.StatusPanel.Name = "StatusPanel";
+            this.StatusPanel.Size = new System.Drawing.Size(301, 125);
+            this.StatusPanel.TabIndex = 10;
+            this.StatusPanel.VerticalScrollbarBarColor = true;
+            this.StatusPanel.VerticalScrollbarHighlightOnWheel = false;
+            this.StatusPanel.VerticalScrollbarSize = 10;
+            // 
+            // TotalSavingsText
+            // 
+            this.TotalSavingsText.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.TotalSavingsText.Location = new System.Drawing.Point(124, 90);
+            this.TotalSavingsText.Name = "TotalSavingsText";
+            this.TotalSavingsText.Size = new System.Drawing.Size(169, 25);
+            this.TotalSavingsText.Style = MetroFramework.MetroColorStyle.Blue;
+            this.TotalSavingsText.TabIndex = 8;
+            this.TotalSavingsText.Text = "## #,###,###.##";
+            this.TotalSavingsText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TotalSavingsText.UseStyleColors = true;
+            // 
+            // TotalIncome
+            // 
+            this.TotalIncome.AutoSize = true;
+            this.TotalIncome.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.TotalIncome.Location = new System.Drawing.Point(3, 40);
+            this.TotalIncome.Name = "TotalIncome";
+            this.TotalIncome.Size = new System.Drawing.Size(107, 25);
+            this.TotalIncome.TabIndex = 3;
+            this.TotalIncome.Text = "Total Income";
+            // 
+            // MonthlySummary
+            // 
+            this.MonthlySummary.AutoSize = true;
+            this.MonthlySummary.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.MonthlySummary.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.MonthlySummary.Location = new System.Drawing.Point(0, 0);
+            this.MonthlySummary.Name = "MonthlySummary";
+            this.MonthlySummary.Size = new System.Drawing.Size(159, 25);
+            this.MonthlySummary.TabIndex = 2;
+            this.MonthlySummary.Text = "Monthly Summary";
+            this.MonthlySummary.UseCustomForeColor = true;
+            // 
+            // TotalSavings
+            // 
+            this.TotalSavings.AutoSize = true;
+            this.TotalSavings.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.TotalSavings.Location = new System.Drawing.Point(5, 65);
+            this.TotalSavings.Name = "TotalSavings";
+            this.TotalSavings.Size = new System.Drawing.Size(108, 25);
+            this.TotalSavings.TabIndex = 7;
+            this.TotalSavings.Text = "Total Savings";
+            // 
+            // TotalIncomeText
+            // 
+            this.TotalIncomeText.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.TotalIncomeText.Location = new System.Drawing.Point(124, 40);
+            this.TotalIncomeText.Name = "TotalIncomeText";
+            this.TotalIncomeText.Size = new System.Drawing.Size(169, 25);
+            this.TotalIncomeText.Style = MetroFramework.MetroColorStyle.Green;
+            this.TotalIncomeText.TabIndex = 4;
+            this.TotalIncomeText.Text = "## #,###,###.##";
+            this.TotalIncomeText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TotalIncomeText.UseStyleColors = true;
+            // 
+            // TotalExpense
+            // 
+            this.TotalExpense.AutoSize = true;
+            this.TotalExpense.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.TotalExpense.Location = new System.Drawing.Point(5, 90);
+            this.TotalExpense.Name = "TotalExpense";
+            this.TotalExpense.Size = new System.Drawing.Size(113, 25);
+            this.TotalExpense.TabIndex = 5;
+            this.TotalExpense.Text = "Total Expense";
+            // 
+            // TotalExpenseText
+            // 
+            this.TotalExpenseText.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.TotalExpenseText.Location = new System.Drawing.Point(124, 65);
+            this.TotalExpenseText.Name = "TotalExpenseText";
+            this.TotalExpenseText.Size = new System.Drawing.Size(169, 25);
+            this.TotalExpenseText.Style = MetroFramework.MetroColorStyle.Orange;
+            this.TotalExpenseText.TabIndex = 6;
+            this.TotalExpenseText.Text = "## #,###,###.##";
+            this.TotalExpenseText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.TotalExpenseText.UseStyleColors = true;
+            // 
+            // Spinner
+            // 
+            this.Spinner.Location = new System.Drawing.Point(923, -8);
+            this.Spinner.Maximum = 100;
+            this.Spinner.Name = "Spinner";
+            this.Spinner.Size = new System.Drawing.Size(65, 65);
+            this.Spinner.Spinning = false;
+            this.Spinner.TabIndex = 9;
+            this.Spinner.UseSelectable = true;
+            this.Spinner.Value = 75;
+            this.Spinner.Visible = false;
             // 
             // FrmMain
             // 
@@ -515,6 +546,7 @@
         private MetroFramework.Controls.MetroTextBox TxtFromAmount;
         private MetroFramework.Controls.MetroTextBox TxtToAmount;
         private MetroFramework.Controls.MetroComboBox CmbToAmount;
+        private System.Windows.Forms.FlowLayoutPanel EventsLayoutPanel;
     }
 }
 
