@@ -274,6 +274,7 @@
     <Compile Include="Services\ExchangeRates\ExchangeRate.cs" />
     <Compile Include="Services\ExchangeRates\ExchangeRateService.cs" />
     <Compile Include="Services\ExchangeRates\IExchangeRateService.cs" />
+    <Compile Include="Services\Reports\FinancialForecast.cs" />
     <Compile Include="Services\Reports\IReportService.cs" />
     <Compile Include="Services\Reports\MonthlySummeryReport.cs" />
     <Compile Include="Services\Reports\ReportService.cs" />

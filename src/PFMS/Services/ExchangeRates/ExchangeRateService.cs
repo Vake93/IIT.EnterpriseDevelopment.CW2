@@ -61,9 +61,10 @@ namespace PFMS.Services.ExchangeRates
             currencyCodes.RemoveAll(code => code == _defaultCurrencyCode);
 
             var rates = ExchangeRates
-                .Where(r => r.Date.Date == date)
-                .SelectMany(r => r.ReferenceRates)
-                .ToArray();
+                .Where(r => r.Date.Date <= date)
+                .OrderBy(r => r.Date)
+                .First()
+                .ReferenceRates;
 
             if (fromISOCurrencyCode == _defaultCurrencyCode)
             {
